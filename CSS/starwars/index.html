@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000000;
+        }
+        img{
+            width: 100%;
+        }
+        .starwars-demo{
+            height: 17em;
+            width: 35em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+        .star,.wars,.byline{
+            position: absolute;
+        }
+        .star{
+            top: -0.75em;
+            /*动作导演*/
+            animation: shipmove 10s infinite;
+        }
+        @keyframes shipmove{
+            0%{
+                opacity: 0; /*透明度*/
+                transform: scale(1.5);
+            }
+            20%{
+                opacity: 1;
+            }
+            80%{
+                opacity: 1;
+                transform: scale(1);
+            }
+            100%{
+                opacity: 0;
+                transform: translateZ(-400em);
+            }
+        }
+        .wars{
+            bottom: -2em;
+            animation:shipmove 10s infinite;
+        }
+        .byline{
+            color: #ffffff;
+            font-size: 2.25em;
+            font-family: Lato;
+            left: -2em;
+            letter-spacing: 0.4em;
+            right: -2em;
+            top: 29%;
+            text-transform: uppercase;
+            animation: move-byline 10s linear infinite;
+        }
+        @keyframes move-byline{
+            0%{
+                transform: translateZ(5em);
+            }
+            100%{
+                transform: translateZ(0);
+            }
+        }
+        .byline span{
+            display: inline-block;
+            animation: span-letter 10s linear infinite;
+        }
+        @keyframes span-letter{
+            0%,100%{
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            30%{
+                opacity: 1;
+            }
+            70%,80%{
+                transform: rotateY(0);
+                opacity: 1;
+            }
+            88%{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="starwars-demo">
+        <img src="./images/star.svg" class="star">
+        <img src="./images/wars.svg" class="wars">
+    </div> -->
+    <!-- <div class="starwars-dome">
+        <img src="" alt="" class="star">
+        <img src="" alt="" class="wars">
+    </div> -->
+    <!-- <div class="starwars-demo">
+        <img src="./images/star.svg" alt="" class="star">
+        <img src="./images/wars.svg" alt="" class="wars">
+    </div> -->
+    <!-- <div class="starwars-demo">
+        <img src="./images/.svg" alt="" class="star">
+        <img src="./images/.svg" alt="" class="star">
+    </div> -->
+    <div class="starwars-demo">
+        <img src="./images/star.svg" alt="" class="star">
+        <img src="./images/wars.svg" alt="" class="wars">
+        <h2 class="byline">
+            <span>T</span>
+            <span>h</span>
+            <span>e</span>
+            <span>F</span>
+            <span>o</span>
+            <span>r</span>
+            <span>c</span>
+            <span>e</span>
+            <span>A</span>
+            <span>w</span>
+            <span>a</span>
+            <span>k</span>
+            <span>e</span>
+            <span>n</span>
+            <span>s</span>         
+        </h2>
+    </div>
+</body>
+</html>
