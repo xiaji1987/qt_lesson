@@ -1,0 +1,119 @@
+html{
+    font-size: 10px;
+}
+body,html{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100vh;
+}
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    flex: 1rem;
+    background-color:red;
+    justify-content: center;
+    align-items: center;
+}
+.keyhead{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.keyhead_board{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 3.6rem;
+    height: 1rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
+.keyhead_board:nth-child(14) div{
+    margin: -.9rem;
+}
+.keyhead_board:nth-child(15) div{
+    margin: -.9rem;
+}
+.keybody{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.keybody_1{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 4.1rem;
+    height: 2rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
+.keybody_1_1{
+    width: 10rem;
+}
+.keyhead .keybody_1{
+    height: 1rem;
+}
+.keybody_2{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 7rem;
+    height: 2rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
+.keybody_3{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 10.5rem;
+    height: 2rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
+.keybody_4{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 14rem;
+    height: 2rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
+.keybody_5{
+    border: .4rem solid black;
+    border-radius: 0.5rem;
+    margin: .5rem;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    width: 32rem;
+    height: 2rem;       
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,.4);
+    text-shadow: 0 0 .5rem black;
+}
