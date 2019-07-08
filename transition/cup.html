@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        border: .1rem solid #555;
+        width: 90%;
+        min-width: 90rem;
+        margin: 0 auto;
+    }
+    .left{
+        background-color: red;
+        width: 20rem;
+        float: left;
+    }
+    .right{
+        background-color: aqua;
+        width: 20rem;
+        float: right;
+    }
+    .middle{
+        border: .1rem solid red;
+        margin-left: .5rem;
+        margin-right: .5rem;
+    }
+    .middle::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="top">头部</div>
+        <div class="middle">
+            <div class="left">1</div>
+            <div class="right">2</div>
+        </div>
+        <div class="bottom">底部</div>
+    </div>
+</body>
+
+</html>
