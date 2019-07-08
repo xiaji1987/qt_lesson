@@ -1,0 +1,97 @@
+/*css reset 变成白纸*/
+/* 不推荐 性能不好
+*{
+    margin: 0;
+    padding: 0;
+}*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*业务代码*/
+body{
+    height: 100vh;
+    /* background:radial-gradient(circle at center,
+    red,orange 15%,yellow 30%,green 45%,
+    cyan 60%,blue 75%,violet  90%); */
+    background: radial-gradient(circle at center,#fff,#fff 50%,black 100%);
+}
+.baymax{
+    width: 40%;
+    /* height: 50vh;   
+    background-color: red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    background-color: black;
+    border-bottom:1.5em solid black;
+}
+.baymax::before{
+    content: "";
+    width: 12em;
+    height: 12em;
+    /* background-color: red; */
+    border-radius: 50%;
+    /* display: block; */
+    position: absolute;
+    top: -5.5em;
+    left: -9em;
+    background: linear-gradient(to bottom,#efefef,#efefef 50%,#000 50%);
+    background-size: 200% 200%;
+    background-position: 0 -100%;
+}
+.baymax::after{
+    content: "";
+    width: 12em;
+    height: 12em;
+    /* background-color: red; */
+    border-radius: 50%;
+    /* display: block; */
+    position: absolute;
+    top: -5.5em;
+    left: 60em;
+    background: linear-gradient(to bottom,#efefef,#efefef 50%,#000 50%);
+    background-size: 200% 200%;
+    background-position: 0 -100%;
+}
