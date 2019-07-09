@@ -80,6 +80,18 @@ body{
     background: linear-gradient(to bottom,#efefef,#efefef 50%,#000 50%);
     background-size: 200% 200%;
     background-position: 0 -100%;
+    animation: bink 6s infinite;
+}
+@keyframes bink{
+    0%,50%{
+        background-position: 0  100%;
+    }
+    85%,95%{
+        background-position: 0 55%;
+    }
+    100%{
+        background-position: 0  100%;
+    }
 }
 .baymax::after{
     content: "";
@@ -90,8 +102,30 @@ body{
     /* display: block; */
     position: absolute;
     top: -5.5em;
-    left: 60em;
+    right: -9em;
     background: linear-gradient(to bottom,#efefef,#efefef 50%,#000 50%);
     background-size: 200% 200%;
     background-position: 0 -100%;
+    /* animation: bink 6s .2s infinite; */   
+    animation-name: bink;
+    animation-duration: 6s;
+    animation-delay: .5s;
+    animation-iteration-count: infinite;
+}
+/* 从PC端到移动端  适配 响应式编程*/
+@media only screen and (max-width:480px){
+    /* body{
+        background: green;
+    } */
+    .baymax::after,.baymax::before{
+        width: 8em;
+        height: 8em;
+        top:-4em;
+    }
+    .baymax::before{
+        left: -5em;
+    }
+    .baymax::after{
+        right: -5em;
+    }
 }
