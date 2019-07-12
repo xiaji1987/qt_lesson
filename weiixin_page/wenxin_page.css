@@ -28,6 +28,7 @@ html,body{
 }
 .content{
     width: 100%;
+    padding-bottom: 62px;
 }
 .content-items{
     width: 100%;
@@ -73,7 +74,7 @@ html,body{
     color: #555555;
 }
 .detail{
-    width: 100px;
+    width: 200px;
   	overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
