@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    overflow: hidden;
+    font: 100%/1.25 Helvetica, Arial;
+    color: #fff;
+    perspective: 1000px;
+    background-color: #444;
+    background-image: linear-gradient(to bottom, #0073BC,#ffffff);
+}
+.book{
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotateX(30deg);
+    user-select: none;
+}
+.page{
+    width: 300px;
+    height: 300px;
+    padding: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 2em;
+}
+.front{
+    background-color: #E41604;
+}
+.back{
+    background-color: #fff;
+}
+.front-cover{
+    cursor: move;
+    transform-origin: 0 50%;
+    transform: rotateY(0deg);
+}
+.front-cover .back{
+    transform: translateZ(3px);
+    background: url(./imges/壁纸1.jpg) no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.back-cover .back{
+    transform: translateZ(-3px);
+}
+.p3d{
+    transform-style: preserve-3d;
+}
+.flip{
+    transform: rotateY(180deg);
+}
+.dino,.shadow{
+    width: 196px;
+    height: 132px;
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    transform-origin: 0 100%;
+}
+.dino{
+    background: url(./imges/壁纸2.jpg) no-repeat;
+    background-size: cover;
+}
+.shadow{
+    background-color: rgba(0, 0, 0, 0.5);
+}
