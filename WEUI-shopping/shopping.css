@@ -1,0 +1,24 @@
+.container,.page{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.tab{
+    display: none;
+}
+.tab.show{
+    display: block;
+}
+.mine-title{
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+.weui-cell__hd{
+    border-radius: 50%;
+    overflow: hidden;
+}
