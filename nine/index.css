@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f2f2f2;
+}
+header{
+    background: url(./image/图层\ 1.png) 0 0 no-repeat;
+    background-size:100%;
+}
+header .mask{
+    width: 100%;
+    height: 100%;
+    opacity: .65;
+    background-color: rgba(20,20,20,1);
+    overflow: hidden;
+}
+header .content{
+    width: 970px;
+    margin: 208px auto 0 auto;
+}
+header .title{
+    text-align: center;
+    font-size: 62px;
+    color: #FFFFFF;
+    font-weight:200;
+}
+header .text{
+    width: 766px;
+    font-size:20px;
+    color:rgba(255,255,255,.7);
+    line-height:32px;
+    margin: 86px auto 0 auto;
+    text-align: center;
+    font-weight:200;
+}
+.create{
+    border:1px solid rgba(255,255,255,.2);
+    border-radius: 2px;
+    margin-top: 104px;
+    padding: 61px 101px 52px 100px;
+}
+.create .title{
+    text-align: center;
+    font-size: 16px;
+    font-weight:300;
+    color:rgba(255,255,255,1);
+    line-height:28px;
+}
+.create .profile{
+    font-size:12px;
+    font-weight:300;
+    text-align: center;
+    color:rgba(255,255,255,.3);
+    margin: 19px auto;
+}
+.create .input{
+    display: flex;
+    justify-content: space-between;
+}
+.create .input input{
+    outline: none;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius: 2px;
+    width: 292px;
+    height: 50px;
+    background: rgba(0,0,0,0);
+    color: #FFFFFF;
+    text-indent: 22px
+}
+.create .input input[type="button"]{
+    widows: 125px;
+    height:50px;
+    background:rgba(255,255,255,1);
+    border-radius:2px;
+}
