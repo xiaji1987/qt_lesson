@@ -1,0 +1,371 @@
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+    margin: 0;
+    padding: 0;
+}
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */ {
+    font: 14px/1.5 tahoma, \5b8b\4f53, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal;}
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读, 让 small 正常化 */
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置文本格式元素 **/
+a { text-decoration: none; cursor: pointer;display: block}
+a:hover { text-decoration: underline; }
+sup { vertical-align: text-top; } /* 重置, 减少对行高的影响 */
+sub { vertical-align: text-bottom; }
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+/* 重置 HTML5 元素 */
+article, aside, details, figcaption, figure, footer,header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    font-size: 10px;
+}
+header{
+    width:100%;
+    height: 6.5rem;
+}
+header .header-content{
+    width: 100rem;
+    margin: 0 auto;
+}
+header .content-icon{
+    margin: 1.5rem;
+    width: 11.8rem;
+    float: left;
+}
+header .content-mune{
+    float: right;
+}
+header .mune-ul li{
+    float: left;
+    width: 14.3rem;
+    height: 6.5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    border: .1rem solid #EBEBEB;
+    position: relative;
+}
+header .mune-btn{
+    width: 14.3rem; 
+    font-weight: 400;
+    text-decoration: none;
+    color: #000;
+    line-height: 58px;
+    display: block;
+    border-top: 7px solid #f9f9f9;
+}
+header .mune-btn-on{
+    background-color: #f9f9f9;
+    border-top: 7px solid #237ded;
+}
+header .app-img{
+    background: url("./image/hot-new.png") no-repeat;
+    position: absolute;
+    top: 22px;
+    margin: 0;
+    left: 104px;
+    width: 3rem;
+    width: 24px;
+    height: 15px;
+}
+header .game-img{
+    background: url("./image/new-icon.png") no-repeat;
+    position: absolute;
+    top: 22px;
+    margin: 0;
+    left: 104px;
+    width: 3rem;
+    width: 24px;
+    height: 15px;
+}
+main{
+    width: 100%;
+    overflow: hidden;
+}
+main .main-pictrue{
+    position: relative;
+    height: 58.6rem;
+}
+main .pictrue-1{
+    margin-top: -.4rem;
+    width: 100%;
+    height: 56rem;
+    background-color: #001d55;
+    opacity: 1;
+    float: left;
+    animation: pictrue-change1 10s infinite linear;
+}
+main .img{
+    height: 56rem;
+    background: url("./image/2018-01.jpg") no-repeat;
+    background-position-x: 50%;
+}
+@keyframes pictrue-change1{
+    0%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+main .pictrue-2{
+    width: 100%;
+    height: 56rem;
+    background-color: #f1d9ab;
+    opacity: 0;
+    animation: pictrue-change2 10s infinite linear;
+}
+main .img-2{
+    height: 56rem;
+    background: url("./image/2018-02.jpg") no-repeat;
+    background-position-x: 50%;
+}
+@keyframes pictrue-change2{
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+main .down-content{
+    position: absolute;
+    top:9rem;
+    left:105rem;
+}
+main .pc-app{
+    width: 20.5rem;
+    height: 8.7rem;
+    position: relative;
+}
+main .Q-coin{
+    background: #ff6229;
+    font-size: 12px;
+    position: absolute;
+    top: -1.1rem;
+    right: -.8rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    color: #fff;
+    padding: 0 .8rem;
+    z-index: 10;
+    border-radius: .1rem;
+    cursor: default;
+}
+main .pc-a{
+    width: 20.5rem;
+    height: 6.7rem;
+    background: url("./image/sj-down-btn-04.png") no-repeat;
+    background-position-y: 60.5%;
+}
+main .title{
+    color: #fff;
+    font-size: 18px;
+    line-height: 2.2rem;
+    width: 15.2rem;
+    text-align: center;
+    position: absolute;
+    top: 1.6rem;
+    left: 4.5rem;
+}
+main .content{
+    line-height: 1.6rem;
+    width: 20.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    opacity: .7;
+    position: absolute;
+    top: 4.2rem;
+}
+main .down-content p{
+    padding-top: .8rem;
+    color: #fff;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 12px;
+}
+main .moblie-app{
+    width: 20.5rem;
+    height: 7.4rem;
+    position: relative;
+}
+main .moblie-a{
+    margin-top: 3rem;
+    width: 20.5rem;
+    height: 5.4rem;
+    background: url("./image/sj-down-btn-04.png") no-repeat;
+    background-position-y: 78.5%;
+}
+main .tencent-assistant{
+    width: 20.5rem;
+    height: 7.3rem;
+    position: relative;
+}
+main .tencent-a{
+    margin-top: 3rem;
+    width: 20.5rem;
+    height: 7.3rem;
+    background: url("./image/sj-down-btn-04.png") no-repeat;
+    background-position-y: 100%;
+}
+main .cloud-content{
+    background-image: url("./image/wave1.png");
+    height: 8.5rem;
+    width: 400%;
+    position: absolute;
+    top: 50rem;
+    animation: cloud-change 40s infinite linear;
+}
+@keyframes cloud-change{
+    0%{
+        left:-50%;
+    }
+    49%,50%{
+        left:0%;
+    }
+    99%{
+        left:-50%;
+    }
+}
+main .cloud-content2{
+    background-image: url("./image/wave2.png");
+    height: 8.5rem;
+    width: 400%;
+    position: absolute;
+    top: 49rem;
+    animation: cloud-change2 39s infinite linear;
+}
+@keyframes cloud-change2{
+    0%{
+        left:-50%;
+    }
+    40%,50%{
+        left:0%;
+    }
+    90%{
+        left:-50%;
+    }
+}
+main .main-active{
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 100rem;
+    position: relative;
+    height: 28rem;
+    border-bottom: 1px solid #ededed;
+}
+main .active-left{
+    width: 51.6rem;
+    position: absolute;
+    left: 1rem;
+}
+main .active-ul li{
+    width: 39rem;
+    height: 4.7rem;
+    margin-bottom: 4rem;
+    position: relative;
+}
+main .active-right{
+    width: 43.4rem;
+    position: absolute;
+    right: 0px;
+}
+main .active-p1{
+    position: absolute;
+    left: 5.4rem;
+    top: 0;
+    color: #333333;
+    font-size: 18px;
+    font-weight: 700;
+}
+main .active-p2{
+    position: absolute;
+    left: 5.4rem;
+    top: 3.1rem;
+    color: #333333;
+    font-size: 12px;
+}
+main .main-recommend{
+    margin-top: 4.2rem;
+}
+main .recommend-content{
+    width: 100rem;
+    margin: 0 auto;
+}
+main .content-left{
+    width: 70rem;
+    height: 20rem;
+    position: relative;
+}
+main .moreapp{
+    position: absolute;
+    left: 46.3rem;
+    background-image: url("./image/index-spri-new.png");
+    background-position-y: 100%;
+    width: 15.5rem;
+    height: 4.2rem;
+}
+main .moreapp a{
+    position: absolute;
+    left: 10.5rem;
+    background-image: url("./image/index-spri-new.png");
+    background-position: -5.2rem -10.3rem;;
+    width: 4.9rem;
+    height: 4.4rem;
+}
+main .left-tab{
+    width: 100%;
+    height: 3.26rem;
+    display: flex;
+}
+main .tab{
+    margin: 0 0 0 20px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+}
+main .tab:hover{
+    border-bottom: 3px solid #438de9;
+}
+main .tab-botton{
+    border-bottom: 3px solid #438de9;
+}
