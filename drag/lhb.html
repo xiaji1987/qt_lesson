@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 动态的添加canvas 800*600 callbacks -->
+    <div id="game"></div>
+    <script>
+        ;var LHB={};//分号开始，结束之前的//命名空间 libs//大写为类
+        /*
+         *Game类，游戏实例
+         *@params w:number 游戏区域宽度
+         *@params h:number 游戏区域高度 
+         *@params selector:string 游戏区域选择器
+         *@params callback:object 游戏回调集合     
+         */
+        LHB.Game=function(w,h,selector,callback){
+            this.width=w;
+            this.height=h;
+            this.ele=document.querySelector(selector);
+            this.callback=callback;
+            this.Init();
+        }//类
+        LHB.Game.prototype.Init=function(){
+            this.ele.style.width=this.width+'px';
+            this.ele.style.height=this.height+'px';
+            this.createCanvas();
+        }
+        LHB.Game.prototype.createCanvas=function(){
+        }
+        new LHB.Game(800,600,'#game',{})
+    </script>
+</body>
+</html>
