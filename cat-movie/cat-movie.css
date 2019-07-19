@@ -1,0 +1,120 @@
+html,
+body {
+  width: 100%;
+}
+.nav {
+  height: 1.067rem;
+  font-size: 18px;
+  text-align: center;
+  background-color: #e54847;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.nav .arrow-left {
+  float: left;
+  height: 100%;
+  position: relative;
+}
+.nav .arrow-left:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid #fff;
+  border-width: 0 0 2px 2px;
+  transform: rotate(45deg) translateY(-50%);
+}
+.nav span {
+  color: #fff;
+  display: inline;
+}
+.page {
+  background-color: #f4f4f4;
+  z-index: 1;
+  position: relative;
+  margin: 0;
+  color: #555;
+  min-width: 3.1rem;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  font: 14px/1.5 Arial, Helvetica, sans-serif;
+}
+.page section {
+  background-color: #fff;
+  border-bottom: 1px solid #151515;
+}
+.page .movie-header {
+  padding: 0;
+  background: #f8f8f8;
+  border-bottom: none;
+}
+.page .movie-header .movie {
+  color: #fff;
+  padding: 0.4rem;
+  line-height: 1;
+  position: relative;
+  box-sizing: border-box;
+  filter: blur(0);
+}
+.page .movie-header .movie-background,
+.page .movie-header .movie-filter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.page .movie-header .movie-background {
+  z-index: 0;
+  filter: blur(0.6rem);
+  -webkit-filter: blur(0.6rem);
+  background-image: url("./images/header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 40%;
+}
+.page .movie-header .movie-filter {
+  background-color: #40454d;
+  opacity: 0.5;
+}
+.page .movie-header .movie-container {
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+.page .movie-header .movie-container .movie-cover {
+  float: left;
+  width: 2.854rem;
+  height: 4rem;
+  border: 1px solid #f0f2f3;
+  position: relative;
+}
+.page .movie-header .movie-container .movie-cover .img {
+  width: 100%;
+}
+.page .movie-header .movie-container .movie-cover:after {
+  content: "";
+  background-image: url("./images/bofang.png");
+  background-size: 100% auto;
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+}
+.page .movie-header .movie-container .movie-content {
+  overflow: hidden;
+  padding-left: 0.4rem;
+}
+.page .movie-header .movie-container .movie-content .movie-name {
+  font-size: 17px;
+  margin: 0.08rem 0;
+}
+.page .movie-header .movie-container .movie-content .movie-ename {
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+}

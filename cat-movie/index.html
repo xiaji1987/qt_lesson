@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猫眼电影</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.js"></script>
+    <link href="https://cdn.bootcss.com/weui/1.1.3/style/weui.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="./cat-movie.css">
+</head>
+<body>
+    <header class="nav">
+        <i class="arrow-left"></i>
+        <span>影片详情</span>
+    </header>
+    <div class="page">
+        <!-- section -->
+        <section class="movie-header">
+            <div class="movie">
+                <div class="movie-background"></div>
+                <div class="movie-filter"></div>
+                <div class="movie-container">
+                    <!-- pic -->
+                    <div class="movie-cover">
+                        <img src="" alt="" class="img" id="moviePic">
+                    </div>
+                    <!-- detaill -->
+                    <div class="movie-content">
+                        <div class="movie-name">
+                            <span></span>
+                        </div>
+                        <div class="movie-ename">
+                            <span></span>
+                        </div>
+                        <!-- star -->
+                        <div class="movie-score">
+                            <div class="released-score">
+                                <div class="rating" id="rating">
+                                    <span class="rating-score"></span>
+                                </div>
+                                <div class="scote-num">
+                                    (<span></span>人评分)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="./cat-movie.js"></script>
+</body>
+</html>

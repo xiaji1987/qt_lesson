@@ -1,0 +1,115 @@
+{
+  "data": {
+    booking: {
+      ranking: '1',
+      bookingWeek: '8004',
+      bookingTotal: '24316'
+    },
+    moviePic: 'https://img1.doubanio.com/view/photo/m/public/p2551352209.webp',
+    name: '老师·好',
+    nameEnglish: 'Song of Youth',
+    star: 4.5,
+    grade: 9.4,
+    people: '12.5万',
+    type: '剧情,喜剧',
+    where: '中国大陆',
+    time: 111,
+    date: '2019-03-22大陆上映',
+    desc: '1985年的南宿一中，苗宛秋（于谦 饰）老师推自行车昂首走在校园，接受着人们艳羡的目光和纷至沓来的恭维。 桀傲不驯的洛小乙（王广源 饰）、温婉可人的安静（汤梦佳 饰）、新潮前卫的关婷婷（秦鸣悦 饰）、大智若愚的脑袋、舞痴兄弟文明（郝鹏飞 饰）建设（郜玄铭 饰）、八婆海燕（徐紫茵 饰）、奸商耗子（孙艺杨 饰）……三班是一个永远也不缺故事的集体。 苗宛秋怎么也不会想到，他即将走进的这个三班将会成为他以及他身边这辆自行车的噩梦。三班的同学也没有想到，这位新来的老师改变了他们的一生。',
+    person: [{
+        avatal: 'http://p1.meituan.net/moviemachine/6e06b1eee9a74c9573fdb8150fb8561271624.jpg@130w_180h.webp',
+        name: '张栾',
+        sort: '导演'
+      },
+      {
+        avatal: 'http://p0.meituan.net/moviemachine/c7d7683eeb659efb9270fb38cda1704d118177.jpg@130w_180h.webp',
+        name: '于谦',
+        sort: '苗宛秋'
+      },
+      {
+        avatal: 'http://p1.meituan.net/moviemachine/a8b02d325e215882710ae68946855fc4238021.jpg@130w_180h.webp',
+        name: '汤梦佳',
+        sort: '安静'
+      },
+      {
+        avatal: 'http://p1.meituan.net/moviemachine/fb2537776ff1ac40773f2879f1bae99a178466.jpg@130w_180h.webp',
+        name: '王广源',
+        sort: '洛小乙'
+      },
+      {
+        avatal: 'http://p1.meituan.net/moviemachine/a3b80d189663f1b4c3679a6a4efe96ea170771.jpg@130w_180h.webp',
+        name: '秦鸣悦',
+        sort: '关婷婷'
+      },
+      {
+        avatal: 'http://p0.meituan.net/moviemachine/047c0010913b0ff44a5de2387c904071140362.jpg@130w_180h.webp',
+        name: '徐子力',
+        sort: '王海'
+      },
+      {
+        avatal: 'http://p0.meituan.net/moviemachine/8e19f48b3b06d847ed370286ed2b3b66109784.jpg@130w_180h.webp',
+        name: '孙艺杨',
+        sort: '刘昊'
+      },
+      {
+        avatal: 'http://p1.meituan.net/moviemachine/4da0072ba9ba9b205fc195092fb060c638327.jpg@130w_180h.webp',
+        name: '徐紫茵',
+        sort: '李海燕'
+      }
+    ],
+    ranking: 1,
+    weekOffice: 8004,
+    allOffice: 23451,
+    pictures: [
+      'http://p0.meituan.net/movie/665a25835d7332d503eb4c018ece473915209.jpg@250w_140h_1e_1c.webp',
+      'http://p0.meituan.net/movie/d38ad9f8a2d84e2f94e2a3a342dd27281312433.jpg@180w_140h_1e_1c.webp',
+      'http://p0.meituan.net/movie/3378c26092630c3e6f8033eac9a6de0a1341747.jpg@180w_140h_1e_1c.webp',
+      'http://p0.meituan.net/movie/9530c82138049c7828d21d57e98100791225739.jpg@180w_140h_1e_1c.webp',
+      'http://p1.meituan.net/movie/3a4ae71b584c913cff6434621f3304171176107.jpg@180w_140h_1e_1c.webp',
+      'http://p1.meituan.net/movie/3917a24320f3d04f1c8196b5a0dfcc701039924.jpg@180w_140h_1e_1c.webp',
+      'http://p0.meituan.net/movie/8bfc92ecc66cce1fc8ed365774f6f7d2848257.jpg@180w_140h_1e_1c.webp',
+      'http://p1.meituan.net/movie/78bb2799c9dfb29589850473a7892eb6754699.jpg@180w_140h_1e_1c.webp',
+      'http://p0.meituan.net/movie/26120467d726738bf7de80aa58fa20da868131.jpg@180w_140h_1e_1c.webp'
+    ],
+    commentNum: {
+      good: 12558,
+      bad: 177,
+      dy: 1248,
+      bought: 13432,
+      author: 11,
+      sameCity: 784
+    },
+    comment: [{
+        avatal: 'http://img3.duitang.com/uploads/item/201511/14/20151114125146_LXHzE.jpeg',
+        nickName: '许东红· Donna',
+        lever: 'http://p0.meituan.net/moviemachine/83a90e3a7dda4463963fbc7fb8c02ee32335.png',
+        grade: 10,
+        detail: '可以说本片是今年至今为止，我看过的最好看的影片，没有之一！片子特别温情，除了开始有几个点比较搞笑外，我几乎事含着泪看完全场的—为师生间深刻的情感、为同学间真挚的友谊、为青春时美好的爱恋……总之，如果用一个词概括—"纯粹"，对，特别纯粹！我觉得凡70后、上过高中的人都应该走进影院，我想你会找到自己的影子(比如你曾就读是青岛三十九中😏 )。为于谦老师的演绎打CALL，老年的他一出现，我就泪崩了！特别想念我人生中对我影响至深的几位老师，深深地为你们祝福！',
+        date: '03-22',
+        like: 6640,
+        reply: 382
+      },
+      {
+        avatal: 'http://img3.duitang.com/uploads/item/201601/09/20160109192514_jQism.thumb.700_0.jpeg',
+        nickName: '窜天猴',
+        lever: 'http://p0.meituan.net/moviemachine/83a90e3a7dda4463963fbc7fb8c02ee32335.png',
+        grade: 10,
+        detail: '看哭了，其实现在自己也想不明白，还在学校里读书的时候，怎么会喜欢上一个学习成绩不优秀、长得也不高大、各方面发展都不突出的男孩子呢？也许只有当时的我才能回答出来这个问题吧。',
+        date: '03-22',
+        like: 4451,
+        reply: 224
+      },
+      {
+        avatal: 'http://5b0988e595225.cdn.sohucs.com/images/20180720/9787561c8eaf42ddadb5a4e297c94838.jpeg',
+        nickName: '李慧明（有鱼甜品Moa Lee）',
+        lever: 'http://p1.meituan.net/moviemachine/20507a9b86fe5f9eb650d3a0913021942498.png',
+        grade: 9,
+        detail: '很多情怀在里边，感慨这样的好老师难找，更愁现在的教师素质和道德水准，不错，安利！扣分在配音的bug',
+        date: '03-22',
+        like: 2865,
+        reply: 207
+      }
+    ],
+    commentTotal: 39064
+  }
+}
