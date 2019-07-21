@@ -568,3 +568,73 @@ main .list-app-hover a{
     box-sizing: border-box;
     background-color: rgba(245, 245, 245, 0.7);
 }
+footer{
+    height: 21rem;
+    margin: 3rem 0 0;
+    padding: 3rem 0;
+    background: #333;
+    line-height: 2rem;
+    color: #989898;
+    position: relative;
+}
+footer .content-top{
+    width: 89rem;
+    margin: auto;
+    text-align: center;
+}
+footer .top-item{
+    width: 33.3%;
+    float: left;
+    text-align: left;
+    position: relative;
+}
+footer .top-item h3{
+    font-size: 16px;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+footer .top-item p{
+    font-size: 14px;
+    color: #999;
+}
+footer .qq-weibo{
+    background: url("./image/index-spri-new.png") no-repeat;
+    width: 2.3rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-position: 0 -91px;
+}
+footer .micro-blog{
+    background: url("./image/index-spri-new.png") no-repeat;
+    width: 2.3rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-position: 0 -111px;
+}
+footer .footer-img{
+    background: url("./image/index-spri-new.png") no-repeat;
+    width: 13.9rem;
+    height: 14.8rem;
+    background-position: -53.5rem 0;
+    position: absolute;
+    left: 15rem;
+    top: 0;
+}
+footer .content-middle{
+    color: #989898;
+    position: absolute;
+    top: 19rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+footer .content-bottom{
+    text-align: center;
+    line-height: 5rem;
+    position: absolute;
+    top: 22rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
