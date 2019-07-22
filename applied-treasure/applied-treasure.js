@@ -36,7 +36,7 @@ function list_showTab(){
         }
     }
 }
-// js实现
+// js实现onmouseover事件
 const list_app=document.querySelectorAll('.list-app');
 const list_app_hover=document.querySelectorAll('.list-app-hover');
 // for(let i=0;i<list_app.length;i++){

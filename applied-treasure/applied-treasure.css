@@ -533,7 +533,7 @@ main .list-app-hover{
 main .list-show{
     display: block;
 }
-/* css实现 */
+/* css实现onmouseover事件 */
 /* main .list-ul li:hover .list-app-hover{
     display: block;
 }
