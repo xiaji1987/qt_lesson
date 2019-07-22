@@ -36,21 +36,27 @@ function list_showTab(){
         }
     }
 }
-
+// js实现
 const list_app=document.querySelectorAll('.list-app');
 const list_app_hover=document.querySelectorAll('.list-app-hover');
+// for(let i=0;i<list_app.length;i++){
+//     list_app[i].addEventListener('click',function(){
+//         list_show.call(this);
+//     });
+// }
 for(let i=0;i<list_app.length;i++){
-    list_app[i].addEventListener('click',function(){
-        list_show(this);
-    });
+    list_app[i].onmouseover=function(){
+        list_show.call(this);
+    };
 }
 function list_show(){
-    for(let j=0;j<list_app.length;j++){
+    for(let j=0;j<list_app_hover.length;j++){
         if(list_app[j]===this){
-            list_app_hover[j].classList.add('list-show');
-        }else{
             list_app[j].classList.remove('list-show');
             list_app_hover[j].classList.add('list-show');
+        }else{
+            list_app_hover[j].classList.remove('list-show');
+            list_app[j].classList.add('list-show');
         }
     }
 }

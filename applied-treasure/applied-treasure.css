@@ -490,17 +490,14 @@ main .list-chioce{
     display: block;
 }
 main .list-ul li{
-    height: 2.4rem;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 main .list-app{
     width: 100%;
     height: 100%;
     display: none;
-}
-main .list-show{
-    display: block;
+
 }
 main .list-app span{
     transform: translateY(-50%);
@@ -529,9 +526,20 @@ main .app-downnum{
 }
 main .list-app-hover{
     width: 24.6rem;
+    height: 4.6rem;
     position: relative;
     display: none;
 }
+main .list-show{
+    display: block;
+}
+/* css实现 */
+/* main .list-ul li:hover .list-app-hover{
+    display: block;
+}
+main .list-ul li:hover .list-app{
+    display: none;
+} */
 main .list-app-hover .app-num{
     position: absolute;
     top: 0;
@@ -596,6 +604,8 @@ footer .top-item h3{
 }
 footer .top-item p{
     font-size: 14px;
+}
+footer .top-item a{
     color: #999;
 }
 footer .qq-weibo{
