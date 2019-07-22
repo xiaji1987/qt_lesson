@@ -12,10 +12,10 @@ var minEatingSpeed = function(piles ,H = 8){
     return lo;
 }
 function canEatAllBananas(piles,H,low){
-    let h=0;
+    let sum=0;
     for(let pile of piles){
-        h+=Math.ceil(pile/low);
+        sum+=Math.ceil(pile/low);
     }
-    return h<=H;
+    return sum<=H;
 }
 console.log(minEatingSpeed([3,6,7,11]));

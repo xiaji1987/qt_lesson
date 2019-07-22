@@ -41,7 +41,7 @@ Math.round(5/3)=2 四舍五入
     基础数据类型
         整形 Number string Boolean undefined Null Symbol
     复杂数据类型
-        Object [Array,Function,]
+        Object [Array,Function,...]
     设备 典型的慢操作
     fs.readFile(path,'UTF-8',callback)
 - ...spread 展开数组

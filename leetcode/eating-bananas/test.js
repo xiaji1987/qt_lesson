@@ -16,4 +16,4 @@ IMath.max=function(...args){
     }
 }
 
-console.log(IMath.max(...[2,7,8,9]));
+console.log(IMath.max(...[2,6,8,9]));
