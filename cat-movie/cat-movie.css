@@ -48,7 +48,7 @@ body {
 }
 .page section {
   background-color: #fff;
-  border-bottom: 1px solid #151515;
+  border-bottom: 1px solid #e5e5e5;
 }
 .page .movie-header {
   padding: 0;
@@ -173,6 +173,83 @@ body {
 }
 .page .movie-header .movie .operating .movie-mark img {
   width: 18px;
+}
+.page .section-seperate {
+  padding: 0.4rem;
+  padding-bottom: 0;
+  margin-bottom: 0.3rem;
+  border-top: 1px solid #e5e5e5;
+}
+.page .section-seperate .text-expander-content.close {
+  min-height: 65px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.page .section-seperate .text-expander-button {
+  height: 0.7rem;
+  text-align: center;
+}
+.page .section-seperate .text-expander-button .icon-chevron-down {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #aaa;
+  display: inline-block;
+  border-width: 0 1px 1px 0;
+  transform: rotateZ(45deg);
+  box-sizing: border-box;
+  transition: transform 0.5s;
+}
+.page .section-seperate .text-expander-button .icon-chevron-down.up {
+  transform: rotateZ(225deg);
+}
+.page .section-seperate .movie-celebrities {
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.1rem 0;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .section-seperate .movie-celebrities li {
+  text-align: center;
+  display: inline-block;
+  padding: 0.04rem;
+}
+.page .section-seperate .movie-celebrities li .link {
+  color: #000;
+  text-decoration: none;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities-pic {
+  width: 1.7334rem;
+  height: 2.4rem;
+  margin: 0.05rem;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities-pic img {
+  width: 100%;
+}
+.page .section-seperate .movie-celebrities li .link span {
+  display: block;
+  font-size: 0.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities-roles {
+  color: #999;
+}
+.page .section-seperate .weui-flex {
+  text-align: center;
+}
+.page .section-seperate .weui-flex .placeholder span {
+  font-size: 24px;
+  color: #d96a3d;
+}
+.page .section-seperate .weui-flex .placeholder p {
+  margin-top: 0.1rem;
+  color: #bababa;
 }
 #toast {
   display: none;

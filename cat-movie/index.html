@@ -70,15 +70,55 @@
                 </div>
             </div>
         </section>
+        <!-- section2 -->
+        <section class="section-seperate">
+            <div class="text-expander">
+                <div class="text-expander-content close">
+                    <p></p>
+                </div>
+                <div class="text-expander-button" id="text-expander-button">
+                    <i class="icon-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+        <!-- section3 -->
+        <section class="section-seperate">
+            <p class="action-list section-title">演职人员</p>
+            <ul class="movie-celebrities"></ul>
+        </section>
+        <!-- section4 -->
+        <section class="section-seperate">
+            <p class="action-list section-title">票房</p>
+            <div class="weui-flex">
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="ranking"></span>
+                        <p>昨日票房</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="bookingWeek"></span>
+                        <p>首周票房(万)</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="bookingTotal"></span>
+                        <p>累计票房(万)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <!-- toast -->
     <div id="toast">
-            <div class="weui-mask_transparent"></div>
-            <div class="weui-toast">
-                <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-                <p class="weui-toast__content"></p>
-            </div>
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content"></p>
         </div>
+    </div>
     <script src="./cat-movie.js"></script>
 </body>
 </html>

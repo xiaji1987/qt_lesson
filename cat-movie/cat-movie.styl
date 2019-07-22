@@ -1,5 +1,6 @@
 $hdbg_color=#e54847;
 $font_color_block=#ffffff;
+$db_color=#e5e5e5;
 html,body
     width 100%
 .flex
@@ -41,7 +42,7 @@ html,body
     font 14px/1.5 Arial,Helvetica,sans-serif
     section
         background-color #ffffff
-        border-bottom 1px solid #151515
+        border-bottom 1px solid $db_color
     .movie-header
         padding 0
         background #f8f8f8
@@ -144,6 +145,72 @@ html,body
                 .movie-mark
                     img 
                         width 18px
+    .section-seperate
+        padding 0.4rem
+        padding-bottom 0
+        margin-bottom 0.3rem
+        border-top 1px solid $db_color
+        .text-expander
+            &-content.close
+                min-height 65px
+                display -webkit-box
+                overflow hidden
+                text-overflow ellipsis
+                word-break break-all
+                -webkit-box-orient vertical
+                -webkit-line-clamp 3
+            &-button
+                height 0.7rem
+                text-align center
+                .icon-chevron-down
+                    width 10px
+                    height 10px                    
+                    border 1px solid #aaa
+                    display inline-block
+                    border-width 0 1px 1px 0
+                    transform rotateZ(45deg)
+                    box-sizing border-box
+                    transition transform .5s
+                .icon-chevron-down.up
+                    transform rotateZ(225deg)
+    .section-seperate
+        .movie-celebrities
+            width 100%
+            padding 0.3rem 0.3rem 0.1rem 0
+            overflow-x scroll
+            white-space nowrap
+            box-sizing border-box
+            li
+                text-align center
+                display inline-block
+                padding 0.04rem
+                .link
+                    color #000
+                    text-decoration none
+                    .movie-celebrities-pic
+                        width 1.7334rem
+                        height 2.4rem
+                        margin 0.05rem
+                        img 
+                            width 100%
+                    span 
+                        display block
+                        font-size 0.2rem
+                        text-overflow ellipsis
+                        overflow hidden 
+                        white-space nowrap
+                    .movie-celebrities-roles
+                        color #999 
+    .section-seperate
+        .weui-flex
+            text-align center
+            .placeholder
+                span 
+                    font-size 24px
+                    color #d96a3d
+                p
+                    margin-top 0.1rem
+                    color #bababa
 #toast
     display none
 .active

@@ -14,6 +14,9 @@
             $('.address').html(res.data.where);
             $('.time').html(res.data.time);
             $('.date').html(res.data.date);
+            $('.text-expander-content p').html(res.data.desc);
+            celebrity(res.data.person);
+            booking(res.data.booking);
         }
     })
 
@@ -29,6 +32,27 @@
         for (let i = 0; i < num; i++) {
             $('#rating').prepend('<img class="img" src="./images/star.png"></img>');
         }
+    }
+    //演员表
+    function celebrity(actors){
+        for (let actor of actors) {
+            $('.movie-celebrities').append(
+                ` <li>
+                    <a href="#" class="link">
+                        <div class="movie-celebrities-pic">
+                            <img src="${actor.avatal}" alt="">
+                        </div>
+                        <span class="movie-celebrities-nick">${actor.name}</span>
+                        <span class="movie-celebrities-roles">${actor.sort}</span>
+                    </a>
+                </li>`
+            )
+        }
+    }
+    function booking(booking){
+        $('#ranking').html(booking.ranking);
+        $('#bookingWeek').html(booking.bookingWeek);
+        $('#bookingTotal').html(booking.bookingTotal);
     }
 })()
 
@@ -54,4 +78,13 @@ $('#movie-watch').click(function(){
     setTimeout(() => {
         $('#toast').removeClass('active');
     }, 2000);
+})
+$('#text-expander-button').click(function(){
+    if ($('.text-expander-content').hasClass('close')) {
+        $('.icon-chevron-down').addClass('up');
+        $('.text-expander-content').removeClass('close');
+    }else{
+        $('.icon-chevron-down').removeClass('up');
+        $('.text-expander-content').addClass('close');
+    }   
 })
