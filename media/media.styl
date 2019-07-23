@@ -1,0 +1,140 @@
+*
+    margin 0
+    padding 0
+html,body
+    background-color #000000
+    line-height 1.5
+    font-family "Open Sans","Segoe UI","Helvetica",sans-serif
+    -webkit-font-smoothing antialiased
+    padding-top 27px
+ul
+    li
+        list-style none
+a
+    text-decoration none
+.center
+    text-align center
+.very
+    padding 0
+    border 0
+#mainbody
+    background #f8f8f8
+    .noise
+        background url("./images/white.png")
+        .tag-menu
+            position relative
+            .menu
+                padding 0
+                border-bottom 1px solid #ddd
+                overflow hidden
+                li
+                    width 24.5%
+                    text-align center
+                    margin-right 5rem
+                    display inline-block
+                    padding-top 5px
+                    a
+                        display block
+                        color #808080
+                        padding 7px 20px
+                        line-height 1.9
+                        border-bottom 1px solid #dddddd
+                        cursor pointer
+                    .active
+                        color #000000
+        .very.relaxed
+            padding 60px 0 120px 0
+            .container
+                margin 0 auto
+                .main-content
+                    padding 20px 0
+                    position relative
+                    .thembnails
+                        margin-top 48px
+                        overflow hidden
+                        li
+                            float left
+                            margin-bottom 30px
+                            margin-left $jl30
+                        .span4
+                            width 370px
+                            .thembnail
+                                display block
+                                background #fff
+                                border 1px solid #f1f1f1
+                                padding 0
+                                border-radius 2px
+                                line-height 20px
+                                a
+                                    color #333333
+                                    div
+                                        text-align center
+                                        .p20
+                                            padding 20px
+                                            img
+                                                width 163px
+                                                max-width 100%
+                                                height auto
+                                                vertical-align middle
+                                                border 0
+                                            p
+                                                font-size 16px
+                                                opacity .75
+                                                margin 0 0 20px
+                                            .meta
+                                                border-top 1px solid #f1f1f1
+                                                text-align left
+                                                background #fff
+                                                padding 10px
+                                                color #838383
+                                                .pull-right
+                                                    float right
+//媒体查询
+@media (max-width 768px)
+    $jl30 = 0px
+    #mainbody
+        .container
+            padding 0 30px
+            width 100%
+            box-sizing border-box
+            .thembnails
+                margin-left -($jl30)
+                li
+                    float none
+                    margin-left $jl30
+                .span4
+                    width 100% !important
+@media (min-width 768px and max-width 980px)
+    $jl30 = 20px
+    #mainbody
+        .container
+            width 724px
+            box-sizing border-box
+            .thembnails
+                margin-left -($jl30)
+                li
+                    margin-left $jl30
+@media (max-width 1200px)
+    $jl30 = 20px
+    #mainbody
+        .container
+            width 940px
+            box-sizing border-box
+            .thembnails
+                margin-left -($jl30)
+                li
+                    margin-left $jl30
+                .span4
+                    width 300px !important
+@media (min-width 1200px)
+    $jl30 = 30px
+    #mainbody
+        .container
+            width 1170px
+            box-sizing border-box
+            .thembnails
+                margin-left -($jl30)
+                li
+                    margin-left $jl30
+                .span4
+                    width 500x !important

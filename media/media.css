@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background-color: #000;
+  line-height: 1.5;
+  font-family: "Open Sans", "Segoe UI", "Helvetica", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 27px;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.center {
+  text-align: center;
+}
+.very {
+  padding: 0;
+  border: 0;
+}
+#mainbody {
+  background: #f8f8f8;
+}
+#mainbody .noise {
+  background: url("./images/white.png");
+}
+#mainbody .noise .tag-menu {
+  position: relative;
+}
+#mainbody .noise .tag-menu .menu {
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
+#mainbody .noise .tag-menu .menu li {
+  width: 24.5%;
+  text-align: center;
+  margin-right: 5rem;
+  display: inline-block;
+  padding-top: 5px;
+}
+#mainbody .noise .tag-menu .menu li a {
+  display: block;
+  color: #808080;
+  padding: 7px 20px;
+  line-height: 1.9;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+#mainbody .noise .tag-menu .menu li .active {
+  color: #000;
+}
+#mainbody .noise .very.relaxed {
+  padding: 60px 0 120px 0;
+}
+#mainbody .noise .very.relaxed .container {
+  margin: 0 auto;
+}
+#mainbody .noise .very.relaxed .container .main-content {
+  padding: 20px 0;
+  position: relative;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails {
+  margin-top: 48px;
+  overflow: hidden;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails li {
+  float: left;
+  margin-bottom: 30px;
+  margin-left: $jl30;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 {
+  width: 370px;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail {
+  display: block;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 0;
+  border-radius: 2px;
+  line-height: 20px;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a {
+  color: #333;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div {
+  text-align: center;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div .p20 {
+  padding: 20px;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div .p20 img {
+  width: 163px;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div .p20 p {
+  font-size: 16px;
+  opacity: 0.75;
+  margin: 0 0 20px;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div .p20 .meta {
+  border-top: 1px solid #f1f1f1;
+  text-align: left;
+  background: #fff;
+  padding: 10px;
+  color: #838383;
+}
+#mainbody .noise .very.relaxed .container .main-content .thembnails .span4 .thembnail a div .p20 .meta .pull-right {
+  float: right;
+}
+@media (max-width: 768px) {
+  #mainbody .container {
+    padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #mainbody .container .thembnails {
+    margin-left: 0px;
+  }
+  #mainbody .container .thembnails li {
+    float: none;
+    margin-left: 0px;
+  }
+  #mainbody .container .thembnails .span4 {
+    width: 100% !important;
+  }
+}
+@media (min-width: max-width 980px) {
+  #mainbody .container {
+    width: 724px;
+    box-sizing: border-box;
+  }
+  #mainbody .container .thembnails {
+    margin-left: -20px;
+  }
+  #mainbody .container .thembnails li {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  #mainbody .container {
+    width: 940px;
+    box-sizing: border-box;
+  }
+  #mainbody .container .thembnails {
+    margin-left: -20px;
+  }
+  #mainbody .container .thembnails li {
+    margin-left: 20px;
+  }
+  #mainbody .container .thembnails .span4 {
+    width: 300px !important;
+  }
+}
+@media (min-width: 1200px) {
+  #mainbody .container {
+    width: 1170px;
+    box-sizing: border-box;
+  }
+  #mainbody .container .thembnails {
+    margin-left: -30px;
+  }
+  #mainbody .container .thembnails li {
+    margin-left: 30px;
+  }
+  #mainbody .container .thembnails .span4 {
+    width: 500x !important;
+  }
+}
