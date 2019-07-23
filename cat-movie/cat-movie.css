@@ -251,6 +251,125 @@ body {
   margin-top: 0.1rem;
   color: #bababa;
 }
+.page .section-seperate .movie-photo-lists {
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.2rem 0;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .section-seperate .movie-photo-lists .stage-img-container {
+  margin-right: 0.1333rem;
+  display: inline-block;
+  width: 2.4rem;
+  height: 1.867rem;
+}
+.page .section-seperate .movie-photo-lists .stage-img-container .movie-celebrities-pic {
+  width: 100%;
+  height: 100%;
+}
+.page .section-seperate .movie-photo-lists .stage-img-container .movie-celebrities-pic img {
+  width: 100%;
+}
+.page .section-seperate .movie-photo-lists .stage-img-container:nth-child(1) {
+  width: 3.3334rem;
+}
+.page .section-seperate .movie-photo-lists .stage-img-container:last-child {
+  margin-right: 0;
+}
+.page .section-seperate .action-list .join-comment {
+  float: right;
+  transform: translateY(-20%);
+  padding: 0.1rem 0.3rem;
+  font-size: 12px;
+  color: #fff;
+  background-color: #e54847;
+  border-radius: 2rem;
+}
+.page .section-seperate .movie-comment {
+  padding: 0.2rem 0 0.4rem 0.2rem;
+  overflow: hidden;
+}
+.page .section-seperate .movie-comment .comment-item {
+  padding: 0.1rem 0.25rem;
+  float: left;
+  font-size: 12px;
+  border: 1px solid #aaa;
+  margin: 0.2rem 0.3rem 0 0;
+  border-radius: 2rem;
+}
+.page .section-seperate .chosen-comment {
+  padding: 0.2rem 0.2rem 0 0;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item {
+  border-bottom: 1px solid #bababa;
+  padding: 0.1rem 0.1rem 0.2rem 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-avatal {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-avatal img {
+  width: 100%;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-detail {
+  position: absolute;
+  left: 1rem;
+  top: 0.1rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-detail .nick-name {
+  font-size: 14px;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-detail .level img {
+  width: 0.8rem;
+  transform: translateY(0.1rem);
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-detail .item-score-desc {
+  font-size: 12px;
+  color: #aaa;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-context {
+  padding: 0.2rem 0 0.1rem 1rem;
+  box-sizing: border-box;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-context .item-context-p {
+  font-size: 16px;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor {
+  padding: 0.2rem 0 0.2rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor .item-data {
+  font-size: 14px;
+  color: #aaa;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor .item-like-reply {
+  position: absolute;
+  right: 0;
+  top: 0.2rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor .item-like-reply .item-like {
+  margin-right: 0.1rem;
+  display: inline-block;
+  padding: 0.05rem 0.1rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
+  border: 1px solid #aaa;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor .item-like-reply .item-like img {
+  display: inline-block;
+  transform: translateY(25%);
+  width: 0.4rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment-item .item-infor .item-like-reply .item-like .comment-item-num {
+  font-size: 14px;
+  color: #aaa;
+}
 #toast {
   display: none;
 }

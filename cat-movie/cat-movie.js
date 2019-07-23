@@ -17,6 +17,9 @@
             $('.text-expander-content p').html(res.data.desc);
             celebrity(res.data.person);
             booking(res.data.booking);
+            photo_list(res.data.pictures);
+            comment_item(res.data.commentNum); 
+            comment(res.data.comment);         
         }
     })
 
@@ -52,8 +55,69 @@
     function booking(booking){
         $('#ranking').html(booking.ranking);
         $('#bookingWeek').html(booking.bookingWeek);
-        $('#bookingTotal').html(booking.bookingTotal);
+        $('#bookingTotal').html(booking.bookingTotal);  
     }
+    //剧照
+    function photo_list(photos) {
+        for(let photo of photos){
+            $('.movie-photo-lists').append(
+                `<li class="stage-img-container">
+                    <a href="#" class="link"></a>
+                        <div class="movie-celebrities-pic">
+                            <img src="${photo}" alt="">
+                        </div>
+                </li>`
+            )
+        }
+    }
+    function comment_item(items){
+        const comment_item=document.querySelectorAll('.comment-item-num');
+        $(comment_item[1]).html(items.good);
+        $(comment_item[2]).html(items.bad);
+        $(comment_item[3]).html(items.dy);
+        $(comment_item[4]).html(items.bought);
+        $(comment_item[5]).html(items.author);
+        $(comment_item[6]).html(items.sameCity);
+    }
+    function comment(comments){
+        for(let comment of comments){
+            $('.chosen-comment').append(
+                `<li class="chosen-comment-item">
+                    <div class="item-avatal">
+                        <img src="${comment.avatal}" alt="">
+                    </div>
+                    <div class="item-detail">
+                        <div class="item-detail-hd">
+                            <div>
+                                <span class="nick-name">${comment.nickName}</span>
+                                <span class="level">
+                                    <img src="${comment.lever}" alt="">
+                                </span>
+                            </div>
+                            <p class="item-score-desc">给这部电影打了<span>${comment.grade}</span>分</p>
+                        </div>
+                    </div>
+                    <div class="item-context">
+                        <p class="item-context-p">${comment.detail}</p>
+                    </div>
+                    <div class="item-infor">
+                        <div class="item-data">${comment.date}</div>
+                        <div class="item-like-reply">
+                            <div class="item-like">
+                                <img src="./images/dianzan.png" alt="">
+                                <span class="comment-item-num">${comment.like}</span>
+                            </div>
+                            <div class="item-like">
+                                <img src="./images/icon-test.png" alt="">
+                                <span class="comment-item-num">${comment.reply}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>`
+            )
+        }
+    }
+
 })()
 
 // const watch=document.getElementById('movie-watch');

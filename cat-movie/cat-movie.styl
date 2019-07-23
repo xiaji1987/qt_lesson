@@ -211,6 +211,106 @@ html,body
                 p
                     margin-top 0.1rem
                     color #bababa
+    .section-seperate
+        .movie-photo-lists
+            width 100%
+            padding 0.3rem 0.3rem 0.2rem 0
+            overflow-x scroll
+            white-space nowrap
+            box-sizing border-box
+            .stage-img-container
+                margin-right 0.1333rem
+                display inline-block
+                width 2.4rem
+                height 1.867rem
+                .movie-celebrities-pic
+                    width 100%
+                    height 100%
+                    img
+                        width 100%
+                &:nth-child(1)
+                    width 3.3334rem
+                &:last-child
+                    margin-right 0
+    .section-seperate
+        .action-list
+            .join-comment
+                float right
+                transform translateY(-20%)
+                padding 0.1rem 0.3rem
+                font-size 12px
+                color #fff
+                background-color #e54847
+                border-radius 2rem
+        .movie-comment
+            padding 0.2rem 0 0.4rem 0.2rem 
+            overflow hidden
+            .comment-item
+                padding 0.1rem 0.25rem
+                float left
+                font-size 12px
+                border 1px solid #aaa
+                margin 0.2rem 0.3rem 0 0 
+                border-radius 2rem  
+    .section-seperate
+        .chosen-comment
+            padding 0.2rem 0.2rem 0 0
+            .chosen-comment-item
+                border-bottom 1px solid #bababa
+                padding 0.1rem 0.1rem 0.2rem 0
+                box-sizing border-box 
+                position relative
+                .item-avatal
+                    width 0.8rem
+                    height 0.8rem
+                    border-radius 50%
+                    overflow hidden
+                    img
+                        width 100%
+                .item-detail
+                    position absolute
+                    left 1rem
+                    top 0.1rem
+                    .nick-name
+                        font-size 14px
+                    .level
+                        img 
+                            width 0.8rem
+                            transform translateY(0.1rem)
+                    .item-score-desc
+                        font-size 12px
+                        color #aaa
+                .item-context
+                    padding 0.2rem 0 0.1rem 1rem
+                    box-sizing border-box
+                    .item-context-p
+                        font-size 16px
+                .item-infor
+                    padding 0.2rem 0 0.2rem 1rem
+                    box-sizing border-box
+                    position relative
+                    .item-data
+                        font-size 14px
+                        color #aaa
+                    .item-like-reply
+                        position absolute
+                        right 0
+                        top 0.2rem
+                        .item-like
+                            margin-right 0.1rem
+                            display inline-block
+                            padding 0.05rem 0.1rem
+                            box-sizing border-box
+                            border-radius 2rem
+                            border 1px solid #aaa
+                            img
+                                display inline-block
+                                transform translateY(25%)
+                                width 0.4rem
+                            .comment-item-num
+                                font-size 14px
+                                color #aaa
+
 #toast
     display none
 .active
