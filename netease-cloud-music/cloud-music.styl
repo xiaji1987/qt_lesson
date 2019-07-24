@@ -1,0 +1,54 @@
+*
+    margin 0
+    padding 0
+html,body
+    width 100%
+    height 100%
+.swiper-container
+    width 100%
+    height 100%
+    .view
+        width 100%
+        height 100%
+        overflow hidden
+    .view.special
+        background-image linear-gradient(60deg,#f8ddd1,#faece5 73%,#fad2c0)       
+        .moon
+            position absolute
+            width 283px
+            height 283px
+            left 50%
+            top 45%
+            transform translate(-50%,-50%)
+            background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/sun.a3f575ae2fef2cfdae15011e6081a094.png)
+            background-repeat: no-repeat
+            background-size cover
+        .art
+            transform scale(.5)
+            // center center
+            transform-origin top right
+            position absolute
+            width 750px
+            height 1334px
+            right 0
+            top -140px
+            .swing
+                position absolute
+                left 226px
+                top -180px
+                width 478px
+                height 1038px
+                background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/swing.88545d6c8e1ac798465e367f8e5357ab.png)
+                animation ani-swing 6s ease-in-out infinite
+                transform-origin -16% -29%
+@keyframes ani-swing{
+    0%{
+        transform rotate(0)
+    }
+    50%{
+        transform rotate(30deg)
+    }
+    100%{
+        transform rotate(0)
+    }
+}
