@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="info-list">
+        <li><a href="javascript:;" class="info" data-id="1">获取信息1</a></li>
+        <li><a href="javascript:;" class="info" data-id="2">获取信息2</a></li>
+        <li><a href="javascript:;" class="info" data-id="3">获取信息3</a></li>
+    </ul>
+    <div class="userinfo"></div>
+    <script>
+        const infos = document.querySelectorAll('.info');
+        for(let i = 0; i < infos.length; i++){
+            infos[i].addEventListener('click',(event) => {
+                // console.log(event.target);
+            })
+        }
+        const rendStudent = (student) =>{
+            document
+                .querySelector('.userinfo')
+                .innerHTML = `
+                    <p>学号:${student.id} - 姓名:${student.username}</p>
+                `
+        }
+        const fetchStudentInfo = (id) => {
+            // console.log(id);
+            // 可读流，可写流
+            fetch('/data.json')
+                .then(data => data.json())
+                .then(data => {
+                    // console.log(data);
+                    // console.log(data.students[0].id);
+                    let info = data.students.filter(student => student.id==id);
+                    // console.log(info);
+                    rendStudent(info[0]);
+                })
+        }
+        // for(let info of infos){
+        //     info.addEventListener('click',(event) => {
+        //         const id = event.target.dataset.id;
+        //         const studentInfo = fetchStudentInfo(id);
+        //     })
+        // }
+        document.querySelector('.info-list')
+            .addEventListener('click',function(event){
+                // console.log(event.target,this)
+                const id = event.target.dataset.id;
+                const studentInfo = fetchStudentInfo(id);
+            })
+        // 高阶函数
+        // infos.forEach((info,index)=>{
+        //     console.log(info,index);
+        // });
+    </script>
+    <!-- <a href="javascript:;"  id="infor-a">Get Student Info</a>
+    <script>
+        const getStudentInfor = (event) => {
+            // this === event.target
+            console.log(this.event.target);
+            //箭头函数this指向上一级
+        };
+        const   inforA = document.querySelector('#infor-a');
+        inforA.addEventListener('click',getStudentInfor,false/* fasle表示冒泡执行的默认顺序*/)
+        
+    </script> -->
+</body>
+</html>
