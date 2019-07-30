@@ -41,6 +41,75 @@ html,body
                 background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/swing.88545d6c8e1ac798465e367f8e5357ab.png)
                 animation ani-swing 6s ease-in-out infinite
                 transform-origin -16% -29%
+                .leg2
+                    display block
+                    position absolute
+                    left 185.357px
+                    top 958px
+                    width 130px
+                    height 32px
+                    background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/leg2.d7bc44a91b6974450f2ccc430846c63d.png)
+                    background-repeat no-repeat
+                    transform-origin 91% 33%
+                    animation ani-leg2 8s ease-in-out infinite
+                    .jiojio
+                        display block
+                        position absolute
+                        background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/leg2-part.8f70bb7fc789a70bc78c48aa7718a765.png) no-repeat
+                        left -27.75px
+                        top -10.5px
+                        width 57px
+                        height 44px
+                .leg1
+                    display block
+                    position absolute
+                    left 290.375px
+                    top 955.25px
+                    width 63px
+                    height 130px 
+                    background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/leg1.b1df6a7d1a794d36fbd0e1277733e1cf.png)
+                    background-repeat no-repeat
+                    transform-origin 17% 13%
+                    animation ani-leg1 8s ease-in-out infinite
+                    .jiojio
+                        display block
+                        position absolute
+                        background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/leg2-part.8f70bb7fc789a70bc78c48aa7718a765.png) no-repeat
+                        left 26px
+                        top 102px
+                        width 57px
+                        height 44px
+                        transform rotate(-108deg)
+        .paras
+            position absolute
+            left 10%
+            bottom 110px
+            line-height 1.6667
+            letter-spacing 1px
+            color #333
+            .f-aniLineUp
+                opacity 0
+                transform translateY(6px)
+    .swiper-slide-active
+        .view.special 
+            .paras
+                .f-aniLineUp
+                    opacity 1
+                    transform translateY(0)
+                    transition opacity 1s, transform 1.2s 
+    .swiper-slide
+        .view
+            .favourite
+                .juan
+                    position absolute
+                    right 0
+                    top 0
+                    width 483px
+                    height 159px
+                    transform scale(.5)
+                    transform-origin top right
+                    background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/juan3.1c58874dbcd7f233bf027e9332ea6d96.png) no-repeat
+                    animation juanAnimation 6s steps(24) reverse
 @keyframes ani-swing{
     0%{
         transform rotate(0)
@@ -50,5 +119,47 @@ html,body
     }
     100%{
         transform rotate(0)
+    }
+}
+@keyframes ani-leg2{
+    0%{
+        transform rotate(0)
+    }
+    25%{
+        transform rotate(-86deg)
+    }
+    50%{
+        transform rotate(0)
+    }
+    75%{
+        transform rotate(-86deg)
+    }
+    0%{
+        transform rotate(0)
+    }
+}
+@keyframes ani-leg1{
+    0%{
+        transform rotate(0)
+    }
+    25%{
+        transform rotate(108deg)
+    }
+    50%{
+        transform rotate(0)
+    }
+    75%{
+        transform rotate(108deg)
+    }
+    0%{
+        transform rotate(0)
+    }
+}
+@keyframes juanAnimation{
+    from{
+        background-position 0 0
+    }
+    to{
+        background-position -1449px -954px
     }
 }

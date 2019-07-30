@@ -9,3 +9,8 @@ static 定位元素
 tranform: scale(.75)
 tranform: scale(.5)
 tranform: scale(.3)
+## position
+position 脱离文档流
+动画就是 css 属性的改变
+当一个 css 属性改变时 浏览器将其绘制在首面上 同时也会影响其他元素
+让其他元素少受到改属性的影响
