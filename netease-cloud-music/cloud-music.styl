@@ -110,6 +110,47 @@ html,body
                     transform-origin top right
                     background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/juan3.1c58874dbcd7f233bf027e9332ea6d96.png) no-repeat
                     animation juanAnimation 6s steps(24) reverse
+    .swiper-slide
+        .view
+            .manwrap
+                position absolute
+                width 486px
+                height 494px
+                bottom 0
+                transform scale(.5)
+                .man
+                    position absolute
+                    width 100%
+                    height 100%
+                    background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/man.fafe9d20caf92e672faf6cac0506c94b.png) no-repeat
+                    top 0
+                    left 0
+                .shoubi
+                    width 246px
+                    height 270px
+                    position absolute
+                    left 70px
+                    top -115px
+                    transform-origin 100% 100%
+                    background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/shoubi.dfdeb7747a98b98266ff5b0713024c87.png) no-repeat
+                    animation name 1.3s steps(13) infinite;
+    .swiper-slide
+        .words
+            .word
+                filter blur(10px)
+                display inline-block
+                width 120px
+                height 120px
+            span.word:nth-child(1)
+                background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/word-005.fb23ac077f192198be71db00c07ea3a1.png) no-repeat
+                background-size 120px
+            span.word:nth-child(2)
+                background url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/word-006.742fab0bc19b5e0d3a1aea45bbbd785f.png) no-repeat
+                background-size 120px
+    .swiper-slide-active
+        .words
+            .word
+                animation blurAppear 2s linear forwards
 @keyframes ani-swing{
     0%{
         transform rotate(0)
@@ -161,5 +202,25 @@ html,body
     }
     to{
         background-position -1449px -954px
+    }
+}
+@keyframes name{
+    from{
+        background-position 0 0
+    }
+    to{
+        background-position -3198px 0
+    }
+}
+@keyframes blurAppear{
+    0%{
+        filter blur(10px)
+        transform scale(0)
+        opacity 0
+    }
+    100%{
+        filter blur(0)
+        transform scale(1)
+        opacity 1
     }
 }

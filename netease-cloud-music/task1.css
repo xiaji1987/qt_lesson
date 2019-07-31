@@ -1,0 +1,28 @@
+.paras{
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+.para{
+    font-size: 16px;
+    line-height: 10px;
+    text-indent: 2px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: para-ani 5s linear forwards;
+}
+@keyframes para-ani{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* .paras:hover .para{
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 2s,transform 2s;
+} */

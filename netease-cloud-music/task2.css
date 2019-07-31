@@ -1,0 +1,69 @@
+.cat{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.cat-body{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maoshenti.ad6177be5deba54a83a99ef58fe80047.png) no-repeat;
+    width: 117px;
+    height: 201px;
+    z-index: 1;
+}
+.cat-claw{
+    position: absolute;
+    left: 10px;
+    top: 80px;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maozhua.35cbb00fc5856cf230d6a4e60cfdfc55.png) no-repeat;
+    width: 34px;
+    height: 81px;
+    transform-origin: 50% 0;
+    animation: claw-an 10s infinite ease-in-out;
+}
+@keyframes claw-an{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.cat-tail{
+    position: absolute;
+    left: -60px;
+    top: -280px;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/maowei.cebc9c6d99173d07009465c700b0eb21.png) no-repeat;
+    width: 64px;
+    height: 194px;
+    transform-origin: 50% 100%;
+    animation: tail-an 10s infinite ease-in-out;
+}@keyframes tail-an{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
