@@ -22,12 +22,16 @@
         <div id="grassLand2"></div>
     </div>
     <script src="./js/bird.js"></script>
+    <script src="./js/baseObj.js"></script>
+    <script src="./js/block.js"></script>
     <script>
         var jsWrapBg = document.getElementById('wrapbgc'),
             jsheadTitle = document.getElementById('headTitle'),
             jsheadBird = document.getElementById('headBird'),
             jsgrassLand1 = document.getElementById('grassLand1'),
             jsgrassLand2 = document.getElementById('grassLand2'),
+            blocksArr = [],//用来存储block的数据
+            blockDistance = baseObj.randomNum(120, 350),//管道之间的间隔
             // 让草地动起来
             landTimer = setInterval(landRun,30),
             // 小鸟标题动起来
@@ -47,6 +51,26 @@
             }
             jsgrassLand1.style.left = jsgrassLand1.offsetLeft - 3 +'px'; 
             jsgrassLand2.style.left = jsgrassLand2.offsetLeft - 3 +'px';
+            
+            if (blocksArr.length) {
+                for (let i = 0; i < blocksArr.length; i++) {
+                    blocksArr[i].moveBlock();
+                    var x = baseObj.rectangleCrashExamine(blocksArr[i].downDivWrap, bird.div);
+                    var y = baseObj.rectangleCrashExamine(blocksArr[i].upDivWrap, bird.div);
+                    var z = bird.div.offsetTop >= 390;
+                    if(x || y || z){
+                        window.clearInterval(landTimer);
+                        bird.fallSpeed = 0;
+                        jsWrapBg.onclick = null;
+                    }
+                };
+                if(blocksArr[blocksArr.length -1].downDivWrap.offsetLeft < (450 - blockDistance)){
+                    blockDistance = baseObj.randomNum(130, 250);
+                    var newBlock = new Block();
+                    newBlock.createBlock();
+                    blocksArr.push(newBlock);
+                };
+            }
         }
         function headWave(){
             Y *=-1;//Y=Y*-1
@@ -66,8 +90,11 @@
             jsWrapBg.onclick = function(){
                 bird.fallSpeed = -8;
             }
+            //开始出现管道
+             var b = new Block();
+             b.createBlock();
+             blocksArr.push(b);
         }
-
     </script>
 </body>
 </html>

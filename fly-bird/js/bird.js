@@ -28,8 +28,8 @@ var bird = {
                 clearInterval(bird.flyTime);//一旦飞到地面清除定时器
                 clearInterval(bird.wingTime);//飞到地面翅膀摆动定时器
             }
-            if(bird.fallSpeed > 12){
-                bird.fallSpeed = 12;//控制小鸟下落的速度最大不能超过120
+            if(bird.fallSpeed > 20){
+                bird.fallSpeed = 20;//控制小鸟下落的速度最大不能超过120
             }
         }
     },
@@ -45,7 +45,6 @@ var bird = {
                     i = 0;
                 }
             }
-
             if(bird.fallSpeed < 0){
                 bird.div.style.backgroundImage = up[j++];
                 if(j == 2){
