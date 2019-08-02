@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="./retro-snake.css">
+</head>
+<body>
+    <img onload="imgLoaded();" 
+    src="http://e0.ifengimg.com/12/2019/0728/494EF7CBAB5DD0A75D6F65A501C2D7AB1CE4F102_size23_w640_h360.jpeg" alt="">    
+    <div class="welcome">
+        welcome to snake
+    </div>
+    <script src="./retro-snake.js?v123"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Snake Game</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .welcome {
+    font-size: 60px;
+    text-align: center;
+    height: 100vh;
+    line-height: 100vh;
+    /* background-color: red; */
+  }
+  </style>
+</head>
+<body>
+  <img 
+  onload="imgLoaed();"
+  src="http://e0.ifengimg.com/12/2019/0728/494EF7CBAB5DD0A75D6F65A501C2D7AB1CE4F102_size23_w640_h360.jpeg" alt="">
+  <div class="welcome">
+      Welcome to Snake!
+  </div>
+  <script>
+  function imgLoaed() {
+    console.log('哪吒来了');
+  }
+  function hideWelcome() {
+    console.log('隐藏welcome');
+    document.querySelector('.welcome')
+      .style.display = 'none';
+  }
+  const loadAssets = (fn) => {
+    setTimeout(() => {
+      console.log('资源加载完毕');
+      fn();
+    }, 5000)
+  }
+  document.addEventListener('DOMContentLoaded',
+   () => {
+    console.log('页面渲染完成');
+    loadAssets(hideWelcome);
+  })
+  // 资源加载完成
+  window.onload = () => {
+    console.log('页面加载完成');
+    // 加载完后，hideWelcome
+    // loadAssets(hideWelcome);
+    
+    // hideWelcome();
+  }
+  </script>
+</body>
+</html> -->
