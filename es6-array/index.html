@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>    
+        const ages = [32, 15, 19, 12];
+        const allAdult = ages.filter(age => 18);
+        const adultPreset = ages.some(age => 18 );
+        const allOldEnough = ages.every(age => 18);
+        console.log(allAdult);
+        console.log(adultPreset);
+        console.log(allOldEnough);
+        const array = [1, 2, 1, 1, '1'];
+        // arr.filter 数组 uniq 去重
+        // 两重循环 O(N2);
+        // function uniq(arr){
+        //     const res = [];
+        //     // 时间复杂度 空间复杂度
+        //     for (let i = 0; arrayLen < arr.length; i++) {
+        //         // 没有出现过 push length
+        //         let j = 0
+        //         for ( ;resLen < res.length; j++) {
+        //             if(arr[i] === res[j]){
+        //                 break;
+        //             }
+        //         }
+        //         if(j === resLen){
+        //             res.push(arr[i]);
+        //         }
+        //     }
+        //     return res;
+        // }
+        // console.log(uniq(array));
+
+        function unique(arr) {
+            var res = arr.filter((item, index, arr)=>{
+                return arr.indexOf(item) === index;
+            })
+            return res;
+        }
+        console.log(unique(array));
+    </script>
+</body>
+</html>
