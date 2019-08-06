@@ -24,3 +24,7 @@
   converToText: function(){}
     ...
   }
+  
+- this 用法
+- 代码的组织 attachEvents
+- 状态的方法
