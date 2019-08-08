@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    background-color: #2962ff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.progress-ring_circle{
+    transition: stroke-dashoffset 0.2s ease;
+    stroke-dasharray: 100 326.726;
+    stroke-dashoffset: -50;
+    transform-origin: 50% 50%;
+    transform: rotateZ(-90deg);
+}
+input{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+}
