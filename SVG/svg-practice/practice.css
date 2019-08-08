@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.circle{
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 326 326;
+    stroke-dashoffset: 326;
+    animation: change 10s linear infinite;
+}
+@keyframes change{
+    100%{
+        stroke-dashoffset: -326;
+    }
+}
+.text1{
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    fill: none;
+    stroke: #c68db2;
+    stroke-width: 5;
+    stroke-dasharray: 50 150;
+    stroke-dashoffset: 100;
+    animation: change-ant 5s linear infinite;
+}
+.text2{
+    stroke: #a2c9ef;
+    animation-delay: -2s;
+}
+.text3{
+    stroke: #fa29cc;
+    animation-delay: -4s;
+}
+.text4{
+    stroke: #258963;
+    animation-delay: -6s;
+}
+.text5{
+    stroke: #987456;
+    animation-delay: -8s;
+}
+@keyframes change-ant{
+    100%{
+        stroke-dashoffset: -100;
+    }
+}
