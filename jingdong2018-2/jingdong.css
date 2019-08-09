@@ -1,0 +1,99 @@
+* {
+    margin: 0;padding: 0;
+  }
+  html, body {
+    width: 100%;height: 100%;
+  }
+  html {
+    font-size: 37.5px;
+  }
+  .main {
+    background-color: red;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .logo-ran {
+    width: 1.90667rem;
+    height: 1.73333rem;
+    margin-top: 1.6rem;
+    background-size: 14.56rem 4.64rem;
+    text-indent: -133.32rem;
+    background-image: url(https://wqs.jd.com/promote/201707/2018campus/img/sprite.other_5adc1e.png);
+    background-position: -3.02667rem 0;
+  }
+  .text-slogon {
+    width: 5.73333rem;
+    height: 1.97333rem;
+    background-image: url(http://wqs.jd.com/promote/201707/2018campus/img/sprite.text_2b7b0a.png);
+    background-position: -31.73333rem 0;
+    margin-top: 5.65333rem;
+    -webkit-background-size: 51.58667rem 2.44rem;
+    background-size: 51.58667rem 2.44rem; 
+  }
+  .logo-ran,.text-slogon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-indent: -133.32rem;
+    margin-left: .85333rem;
+  }
+  .logo-ran {
+    animation: fadeInRight .5s .3s both;
+  }
+  .text-slogon {
+    animation: fadeInRight .5s .4s both;
+  }
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translate3d(50%, 0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .cube-cnt-2, .cube-cnt-3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5.33333rem;
+    height: 1.2rem;
+  }
+  .cube-2, .cube-3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 12.26667rem;
+    margin-right: 2.66667rem;
+    width: 5.33333rem;
+    height: 1.2rem;
+    background-image: linear-gradient(-90deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+    transform: rotate(-45deg) translate3d(3.06667rem,0,0);
+  }
+  .cube-2 span{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -.36rem;
+    margin-right: -.36rem;
+    width: .70667rem;
+    height: .70667rem;
+    background-color: #fff;
+    transform: rotate(51deg) skew(20deg);
+  }
+  .cube-cnt-2 {
+    animation: cube-cnt 1.5s
+    ease-in-out infinite 
+    alternate;
+  }
+  @keyframes cube-cnt {
+    0% {
+      transform: translateZ(0);
+    }
+    100% {
+      transform: translate3d(.10667rem,-.10667rem,0);
+    }
+  }
