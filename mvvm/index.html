@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="txt">
+        <p id="show-txt"></p>
+    </div>
+    <script>
+        // const txtEle = document.getElementById('show-txt');
+        // const oInput = document.getElementById('txt');
+        // // 这个页面(静态)的数据(data)核心
+        // // 数据和界面的双向绑定
+        // // 函数封装思想 大于10行分函数
+        // // 每个函数只做一件事
+        // const obj = {
+        //     txt: '纳德拉'
+        // }
+        // Object.defineProperty(obj, 'txt', {
+        //     get: function() {
+        //         console.log("获得属性");
+        //         return obj.txt;
+        //     },
+        //     set: function(newValue){
+        //         console.log("设置属性");
+        //         // obj.txt = newValue;
+        //         document.getElementById('show-txt').innerHTML = newValue;
+        //     }
+        // })
+        // setTimeout
+        // function init(){
+        //     oInput.value = obj.txt;
+        //     txtEle.innerText = obj.txt;
+        //     setTimeout(function() {
+        //         obj.txt = '甘地';
+        //         reader(obj.txt);
+        //     }, 1000)
+        // }
+        // function reader(txt){
+        //     oInput.value = txt;
+        //     txtEle.innerText = txt;
+        // }
+        // init();
+
+        // oInput.addEventListener('input', function() {
+        //     txtEle.innerHTML = this.value;
+        //     obj.txt = this.value;
+        // })
+
+                // 数据和界面的双向绑定
+        // 函数封装的思想 大于10行请封函数 
+        // 每个函数只做一件事 复用
+        const txtEle = document.getElementById('show-txt');
+        const oInput = document.getElementById('txt'); 
+        const obj = {
+            txt: '纳德拉'
+        }
+        Object.defineProperty(obj, 'txt', {
+            get: function() {
+                console.log('获得属性');
+                return obj;
+            },
+            set: function(newValue) {
+                console.log('设置属性');
+                document.getElementById('show-txt').innerHTML = newValue;
+                document.getElementById('txt').value = newValue;
+            }
+        })
+        setTimeout(() => {
+            obj.txt = '123'
+        }, 3000)
+        document.getElementById('txt').addEventListener('keyup', function(e) {
+            obj.txt = e.target.value;
+            
+        })
+        oInput.addEventListener('input', function() {
+            txtEle.innerHTML = this.value;
+            obj.txt = this.value;
+        })
+    </script>
+</body>
+<html>
