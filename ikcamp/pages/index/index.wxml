@@ -1,0 +1,16 @@
+<loading hidden="{{hiddenLoading}}">数据加载中</loading>
+<view class="wrapper">
+  <view class="group" wx:for="{{articleList}}" wx:key="{{group.data}}" wx:for-item="group">
+    <view class="group-bar" >
+      <view class="group-title {{group.formatData === '今日' ? 'on' : ''}}" >{{group.formatData}}</view>
+    </view>
+    <view class="group-content" wx:for="{{group.articles}}" wx:for-item="item" wx:key="{{item.contentId}}">
+      <view class="group-content-item">
+        <view class="group-content-item-desc">
+          {{item.title}}
+        </view>
+        <image mode="aspectFill" class="group-content-item-img" src="{{item.cover || defualt.coverImg}}"/>
+      </view>
+    </view>
+  </view>
+</view>
