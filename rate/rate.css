@@ -1,0 +1,29 @@
+input {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.rate-content {
+  display: flex;
+  flex-flow: row-reverse;
+}
+.rate-content input[name="rate"] {
+  font-family: "iconfont";
+  font-size: 30px;
+  padding-right: 10px;
+  transition: transform 0.2s ease;
+}
+.rate-content input[name="rate"]:hover {
+  transform: scale(1.5);
+}
+.rate-content input[name="rate"]::after {
+  content: '\e612';
+  color: #999;
+  transition: color 0.4s ease;
+}
+.rate-content input[name="rate"]:checked::after,
+.rate-content input[name="rate"]:checked ~ input[name='rate']::after {
+  content: '\e640';
+  color: #ffa822;
+}
