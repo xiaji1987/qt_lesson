@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let target = {
+            name: 'Tom',
+            age: 20
+        }
+        let handler = {
+            get(target, key) {
+                console.log('getting:'+ key);
+                return target[key];
+            },
+            set(target, key, value) {
+                console.log('setting:'+ key);
+                target[key] = value;
+            }
+        }
+        let proxy = new Proxy(target, handler);
+        console.log(proxy.name);
+    </script>
+</body>
+</html>
