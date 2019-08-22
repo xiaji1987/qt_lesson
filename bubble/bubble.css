@@ -1,0 +1,108 @@
+html,body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+button{
+    display: inline-block;
+    border: none;
+    padding: 10px 20px;
+    width: 70px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    appearance: none;
+    outline: none;
+}
+button:hover{
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+.container {
+    width: 400px;
+    text-align: center;
+}
+[tooltip] {
+    position: relative;
+}
+
+[tooltip]::after {
+    display: none;
+    content: attr(tooltip);
+    position: absolute;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px 15px;
+    max-width:200px;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+[tooltip]::before{
+    display: none;
+    content: '';
+    position: absolute;
+    border: 5px solid transparent;
+    border-bottom-width: 0;
+    z-index: 100;
+}
+[tooltip]:hover::after{
+    display: block;
+}
+[tooltip]:hover::before{
+    display: block;
+}
+[tooltip][placement^="top"]::after,
+[tooltip][placement^="top"]::before{
+    animation: anime-top 300ms ease-out forwards;
+}
+.tooltip-theme-dark,[tooltip]::after {
+    color: #fff;
+    background-color: #313131;
+}
+.tooltip-theme-light,[tooltip]::after {
+    color: #313131;
+    background-color: #fff;
+    border: 1px solid #313131;
+}
+.tooltip-placement-top,
+[tooltip]:not([placement])::after,
+[tooltip][placement=""]::after,
+[tooltip][placement="top"]::after,
+[tooltip][placement="top-right"]::after{
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.triangle-theme-light,[tooltip][effect="light"]::before{
+    border-top-color: #313131;
+}
+.triangle-theme-dark,[tooltip]::before{
+    border-top-color: #313131;
+}
+.triangle-placement-top,
+[tooltip]:not([placement])::before,
+[tooltip][placement=""]::before,
+[tooltip][placement="top"]::before,
+[tooltip][placement="top-right"]::before {
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+@keyframes anime-top {
+    form {
+        opacity: 0.5;
+        bottom: 150%;
+    }
+}
