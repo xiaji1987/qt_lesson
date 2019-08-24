@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root">
+        <!-- html页面 切图仔 -->
+        <!-- template  {{userinfo.name}}  mvvm 响应式编程 -->
+        <!-- 组件  界面的复用 -->
+        <!-- 书籍 -->
+        <section>
+            <h3 id="title"></h3>
+            <p id="desc"></p>
+            <div id="date"></div>
+        </section>
+    </div>
+    <script>
+        fetch('/book')
+            .then(data => data.json())
+            .then(data => {
+                console.log(data);
+
+                const { name, description, date } = data;
+                document
+                    .getElementById('title').innerText = name;
+                document.getElementById('desc').innerText
+                    = description;
+                document.getElementById('date').innerText = date;
+
+            })
+    </script>
+</body>
+
+</html>
