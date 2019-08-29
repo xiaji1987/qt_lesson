@@ -22,4 +22,7 @@
     html5 API FileReader
     reader.readAsDataURL(file);
     - 判断文件类型
+    - FileReader event.target.result
+      img.src = 
   - canvas
+    处理image
