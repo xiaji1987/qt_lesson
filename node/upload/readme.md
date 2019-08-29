@@ -14,3 +14,12 @@
   npm install multer
   - 存储的地址 /upload
   - 文件名 Date.now() 时间戳
+
+- 文件压缩上传
+  移动时代 更快 shen流量
+  - onchange event.target.files
+  - 将用户电脑上的图片内存之中， 进行处理
+    html5 API FileReader
+    reader.readAsDataURL(file);
+    - 判断文件类型
+  - canvas

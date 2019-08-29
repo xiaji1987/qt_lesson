@@ -7,11 +7,52 @@
     <title>Document</title>
 </head>
 <body>
-    上传文件
+    <!-- 上传文件
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <h2>单文件上传</h2>
         <input type="file" name='pic'>
         <input type="submit" value="提交">
-    </form>
+    </form> -->
+
+    <!-- 前端处理图片压缩及上传 -->
+    <input type="file" name="pic" id="file">
+    <script>
+        const oFile = document.getElementById('file');
+        // oFile.addEventListener('change', function(event) {
+        //     console.log(event);
+        //     let file = event.target.files[0];
+        //     console.log(file);
+        // })
+        const reader = new FileReader();
+        const img = new Image();
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        oFile.onchange = function(event){
+            // console.log(event);
+            let file = event.target.files[0];
+            console.log(file);
+            if(file.type.indexOf('image') == 0){
+                reader.readAsDataURL(file);
+            }else{
+                console.log("这不是一张图片");
+            }
+        }
+        // 已经读取到内存中
+        reader.onload = function(event) {
+            // console.log(event.target.result);
+            // canves -> image
+            img.src = event.target.result;
+            // document.body.appendChild(img);
+        }
+        img.onload = function() {
+            // canvas
+            let originWidth = this.width;
+            let originHeight = this.height;
+            canvas.width = originWidth;
+            canvas.height = originHeight;
+            context.drawImage(this, 0, 0, originWidth, originHeight);
+            document.body.appendChild(canvas);
+        }
+    </script>
 </body>
 </html>
