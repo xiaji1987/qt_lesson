@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Foo(age) {
+            this.name = 'woniu';
+            this.age = age;
+        }
+        // console.log(new Foo(18));
+        function objectFactory() {
+            const obj = {};// 1 定义一个对象
+            const Constructor = [].shift.call(arguments);// 3
+            // const [Constructor,...args] = [...arguments];// 3
+            console.log(Constructor);
+            obj._proto_ = Constructor.prototype;// 5
+            const ret = Constructor.apply(obj, arguments);// 4
+            console.log(obj);
+            // return obj;// 2 返回一个对象
+            return typeof ret === 'object' ? ret : obj;// 2 返回一个对象
+        }
+        console.log(objectFactory(Foo, 18));
+
+        // prototype
+        // _proto_
+
+        // function abc() {
+
+        // }
+        // abc.prototype --> {constructor: f}
+        // 隐式原型指向这个对象的函数的prototype
+    </script>
+</body>
+</html>
