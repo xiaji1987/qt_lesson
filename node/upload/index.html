@@ -45,9 +45,25 @@
             // document.body.appendChild(img);
         }
         img.onload = function() {
-            // canvas
+            // canvas 压缩
             let originWidth = this.width;
             let originHeight = this.height;
+            // 图片大？
+            const maxWidth = 400, maxHight = 400;
+            // 图片比例
+            let targetWidth = originWidth, targetHight = originHeight;
+            if(originWidth > maxWidth || originHeight > maxHight) {
+                // 需要压缩
+                if(originWidth/originHeight > maxWidth/maxHight) {
+                    targetWidth = maxWidth;
+                    // 等比例
+                    targetHight = maxWidth * (originHeight / originWidth);
+                } else {
+                    targetHight = maxHight;  
+                    targetWidth = Math.round(maxHight * (originWidth / originHeight));
+                }
+
+            }
             canvas.width = originWidth;
             canvas.height = originHeight;
             context.drawImage(this, 0, 0, originWidth, originHeight);
