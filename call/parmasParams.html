@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function parseParams(url) {
+            let obj = {};
+            if(url.indexOf('?') !== -1) {
+                parseString = url.split('?')[1];
+            }
+            const parseArr = parseString.split('&');
+            parseArr.forEach(element => {
+                console.log(element);
+                if(element.indexOf('=' !== -1)) {
+                    let [key, val] = element.split('=');
+                    const [key, val] = element.split('=');
+                    val = decodeURIComponent(val);
+                    if(obj.hasOwnProperty(ket)) {
+                        obj[key] = [].concat(obj[key], val);
+                    } else {
+                        obj[key] = val;
+                    }
+                } else {
+                    obj[element] = true;
+                }
+            });
+            return obj;
+        }
+        console.log(parseParams('http://juejin.im/search?query=node&type=article'));
+    </script>
+</body>
+</html>
