@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>debounce</title>
+</head>
+<body>
+    <div>
+        <label for="unDebounce">没有防抖的input</label>
+        <input type="text" id="unDebounce">
+    </div>
+    <div>
+        <label for="Debounce">防抖的input</label>
+        <input type="text" id="Debounce">
+    </div>
+    <script>
+        let inputA = document.getElementById('unDebounce');
+        function ajax(event) {
+            console.log(event);
+            // console.log(this);
+        }
+        // search suggestion
+        // 大量的事件执行
+        inputA.addEventListener('keyup', function (event) {
+            let value = event.target.value;
+            ajax(value);
+        })
+
+        let debounceAjax = debounce(ajax, 500);
+        let inputDebounce = document.getElementById('Debounce');
+        inputDebounce.addEventListener('keyup', function(event) {
+            // 防栏的函数
+            // 最后执行的是ajax return Ajax() 高阶函数
+            debounceAjax(event.target.value);
+        })
+        // 通用的功能， fun === ajax, delay
+        function debounce(fun, delay) {
+            // 高阶函数 参数是函数， 或者返回的是函数
+            // 闭包
+            // func ajax未来被执行
+            return function(args) {
+                // args被执行时， 传过来的参数
+                // 可以被引用到 func
+                console.log(args,'-------');
+                clearTimeout(fun.id);
+                // var that = this;
+                fun.id = setTimeout(() => {
+                    // 引用到deboundce 内部
+                    fun.call(this, args)
+                },delay);
+                // fun(args);
+            }
+        }
+    </script>
+</body>
+</html>
