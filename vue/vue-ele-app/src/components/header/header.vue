@@ -17,7 +17,7 @@
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
-      <div class="support-count" @click="showDetail" v-if="seller.supports">
+      <div class="support-count" v-if="seller.supports" @click="showDetail">
         <span class="count">{{seller.supports.length}}个</span>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
@@ -28,9 +28,8 @@
       <i class="icon-keyboard_arrow_right"></i>
     </div>
     <div class="background">
-      <img :src="seller.avatar" alt="" width="100%" height="100%">
+      <img :src="seller.avatar" width="100%" height="100%" alt="">
     </div>
-
     <transition name="fade">
       <div class="detail" v-show="detailShow">
         <div class="detail-wrapper clearfix">
@@ -72,7 +71,7 @@
 export default {
   name: 'Header',
   props: {
-    seller:{
+    seller: {
       type: Object
     }
   },
@@ -82,26 +81,26 @@ export default {
       detailShow: false
     }
   },
-  created () {
-    this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
-  },
   methods: {
-    showDetail() {
+    showDetail () {
       this.detailShow = true
     },
-    hideDetail() {
+    hideDetail () {
       this.detailShow = false
     }
+  },
+  created () {
+    this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-@import '../../common/stylus/mixin'
+@import '../../common/stylus/mixin';
 .header
   position relative
   overflow hidden
-  color #ffffff
+  color #fff
   background rgba(7, 17, 27, 0.5)
   .content-wrapper
     position relative
@@ -111,12 +110,12 @@ export default {
       display inline-block
       vertical-align top
       img
-        border-radius 2px
+        border-radius 2px;
     .content
       display inline-block
       margin-left 16px
       .title
-        margin 2px 0 8px 0
+        margin 0 2px 8px 0
         .brand
           display inline-block
           vertical-align top
@@ -143,13 +142,10 @@ export default {
           margin-right 4px
           background-size 12px 12px
           background-repeat no-repeat
-
           &.decrease
             bg-image('./header/decrease_1')
-
           &.discount
-            bg-image('./header/discount_1')
-
+              bg-image('./header/discount_1')
           &.guarantee
             bg-image('./header/guarantee_1')
 
@@ -158,7 +154,6 @@ export default {
 
           &.special
             bg-image('./header/special_1')
-
         .text
           line-height 12px
           font-size 10px
@@ -179,33 +174,6 @@ export default {
         margin-left 2px
         line-height 24px
         font-size 10px
-  .bulletin-wrapper
-      position relative
-      height 28px
-      line-height 28px
-      padding 0 22px 0 12px
-      white-space nowrap
-      overflow hidden
-      text-overflow ellipsis
-      background rgba(7, 17, 27, 0.2)
-      .bulletin-title
-        display inline-block
-        vertical-align top
-        margin-top 8px
-        width 22px
-        height 12px
-        bg-image('./header/bulletin')
-        background-size 22px 12px
-        background-repeat no-repeat
-      .bulletin-text
-        vertical-align top
-        margin 0 4px
-        font-size 10px
-      .icon-keyboard_arrow_right
-        position absolute
-        font-size 10px
-        right 12px
-        top 8px
   .background
     position absolute
     top 0
@@ -214,6 +182,33 @@ export default {
     height 100%
     z-index -1
     filter blur(10px)
+  .bulletin-wrapper
+    position relative
+    height 28px
+    line-height 28px
+    padding 0 22px 0 12px
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    background rgba(7, 17, 27, 0.2)
+    .bulletin-title
+      display inline-block
+      vertical-align top
+      margin-top 8px
+      width 22px
+      height 12px
+      bg-image('./header/bulletin')
+      background-size 22px 12px
+      background-repeat no-repeat
+    .bulletin-text
+      vertical-align top
+      margin 0 4px
+      font-size 10px
+    .icon-keyboard_arrow_right
+      position absolute
+      font-size 10px
+      right 12px
+      top 8px
   .detail
     position fixed
     z-index 100
