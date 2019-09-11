@@ -33,7 +33,7 @@
                     <div class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</div>
                   </div>
                   <div class="cartcontrol-wrapper">
-                    <cart-control></cart-control>
+                    <cart-control :food="food" @add="addFood"></cart-control>
                   </div>
                 </div>
               </li>
@@ -42,6 +42,7 @@
         </ul>
       </div>
       <!-- 购物车 -->
+      <shop-cart :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></shop-cart>
     </div>
   </div>
 </template>
@@ -49,10 +50,17 @@
 <script>
 import BScroll from 'better-scroll'
 import cartcontrol from '@/components/cartcontrol/cartcontrol'
+import shopcart from '@/components/shopcart/shopcart'
 export default {
   name: 'goods',
   components: {
-    'cart-control': cartcontrol
+    'cart-control': cartcontrol,
+    'shop-cart': shopcart
+  },
+  props: {
+    seller: {
+      type: Object
+    }
   },
   data () {
     return {
@@ -74,6 +82,20 @@ export default {
         }
       }
       return '' + 0
+    },
+    selectFoods () {
+      let foods = []
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push({
+              price: food.price,
+              count: food.count
+            })
+          }
+        })
+      })
+      return foods
     }
   },
   methods: {
@@ -106,6 +128,9 @@ export default {
         height += item.clientHeight
         this.listHeight.push(height)
       }
+    },
+    addFood () {
+      // console.log('123')
     }
   },
   created () {
@@ -116,7 +141,7 @@ export default {
     }).then(res => {
       console.log(res)
       if (res.data.errno === 0) {
-        this.goods = Object.assign({}, this.goods, res.data.data)
+        this.goods = res.data.data
         // 页面渲染完成才会执行
         this.$nextTick(() => {
           this._initScroll()
