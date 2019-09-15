@@ -13,7 +13,7 @@
     <el-row>
       <el-col :span="4">
         <div class="grid-content bg-pusple">
-          左侧导航
+          <SiderNavBar />
         </div>
       </el-col>
       <el-col :span="20">
@@ -25,14 +25,14 @@
 
 <script>
 import HeaderNavBar from '@/components/HeaderNavBar'
-import SiderNavBar from '@/components/SiderNavBar'
+import SiderNavBar from '@/components/SideNavBar'
 export default {
   name: "App",
   components: {
     HeaderNavBar,
     SiderNavBar
   }
-};
+}
 </script>
 
 <style>
@@ -42,9 +42,8 @@ export default {
 }
 .nav-logo-wrap{
   text-align: center;
-  background-color: #0da7ff;
 }
 .logo {
-  height: 60px;
+  height: 56px;
 }
 </style>
