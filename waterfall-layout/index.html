@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>瀑布流</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #waterFall img{
+    float: left;
+    width: 200px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+  }
+  </style>
+</head>
+<body>
+  <div id="waterFall">
+      <img src="./images/1.png" alt="">
+      <img src="./images/2.png" alt="">
+      <img src="./images/3.png" alt="">
+      <img src="./images/4.png" alt="">
+      <img src="./images/5.png" alt="">
+      <img src="./images/6.png" alt="">
+      <img src="./images/7.png" alt="">
+      <img src="./images/8.png" alt="">
+      <img src="./images/9.png" alt="">
+      <img src="./images/10.png" alt="">
+      <img src="./images/11.png" alt="">
+      <img src="./images/12.png" alt="">
+      <img src="./images/13.png" alt="">
+      <img src="./images/14.png" alt="">
+      <img src="./images/15.png" alt="">
+      <img src="./images/16.png" alt="">
+      <img src="./images/17.png" alt="">
+      <img src="./images/18.png" alt="">
+      <img src="./images/19.png" alt="">
+      <img src="./images/20.png" alt="">
+  </div>
+  <script src="./index.js"></script>
+  <script>
+    window.onload = function() {
+      let wl = new waterFall({
+        number: 20,
+        container: 'waterFall'
+      });
+      setTimeout(() => {
+        const fragment = document.createDocumentFragment();
+        // <>
+        // </>
+        for (let i = 0; i < 20; i++) {
+          const img = document.createElement('img');
+          img.setAttribute('src',`./images/${i + 1}.png`);
+          fragment.appendChild(img);
+        }
+        wl.append(fragment);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
