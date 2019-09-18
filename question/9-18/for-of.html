@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // for of 可以用来遍历可迭代对象
+  // 可迭代对象？？？
+  // 1. 有iterator 属性
+  // 2. iterator 的值是一个方法
+  const arr = [1, 2, 3];
+  const string = '123456789';
+  // Symbol.iterator 值
+  console.log(arr[Symbol.iterator]);
+  console.log(string[Symbol.iterator]);
+  </script>
+</body>
+</html>

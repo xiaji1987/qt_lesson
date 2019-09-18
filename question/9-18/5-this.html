@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1 
+    function foo() {
+      console.log(this);// this == window
+    }
+    // 2
+    var status = 'global';
+    var obj = {
+      status: 'obj',
+      getStatus: function () {
+        return this.status 
+      }
+    }
+    console.log(obj.getStatus());// this == obj(this 指向 obj)
+    var fun = obj.getStatus;
+    console.log(fun());// this == window(this 指向 obj)
+    // this调用时候才能决定this 指向哪里
+
+    // 3
+    // call apply bind
+    // bind 返回一个 绑定 this 的函数
+    function bar(a) {
+      console.log(this.name + a);
+    }
+    var obj3 = {
+      name: 'obj3'
+    }
+    var cbar = bar.call(obj3,'5');
+    var abar = bar.apply(obj3,[5]);
+    var bbar = bar.bind(obj3);
+    console.log(typeof bbar);// function
+
+    // 4
+    function Test() {
+      this.name = 'name';
+      // this 指向 test
+      // 网test上面添加了一个name属性
+    }
+    var test = new Test();
+    // Test 里面 this 指向 test
+
+    // 5
+    var bindObj = {
+      name: '123'
+    }
+    function TestNew() {
+      // this == bindObj
+      // bindObj.age = 20;
+      this.age = 20;
+    }
+    const bindTestNew = TestNew.bind(bindObj);
+    bindTestNew();
+    let resNew = new bindTestNew();
+    console.log(bindObj);
+    console.log(resNew);
+  </script>
+</body>
+
+</html>
