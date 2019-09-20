@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function Button(text) {}
+    class Button {
+      constructor(text) {
+        this.text = text;
+      }
+      click () {
+        console.log('clicked !');
+      }
+    }
+    class LoginButton extends Button {
+      constructor() {
+        super('登录');
+        this.color = 'green';
+      }
+    }
+    var obj = new LoginButton();
+    console.log(obj);
+  </script>
+</body>
+</html>

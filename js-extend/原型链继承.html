@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Go () {
+      this.a = 1;
+    }
+    Go.prototype.a = 2;
+    var obj = new Go();
+    // 先构造出一个对象
+    // 处理一下属性 prototype
+    // 返回这个对象
+    console.log(obj);
+    // var obj = {
+    //   a: 1,
+    //   __proyo__: {
+    //     a: 2
+    //   }
+    // }
+    // obj.__proyo__ = Go.prototype
+    function Child1() {};
+    Child1.prototype = new Go();
+    function Child2() {};
+    Child2.prototype = new Go();
+    var child1 = new Child1();
+    var child2 = new Child2();
+    child1.a = 100;
+    console.log(child2)
+    // Child1.prototype = {
+    //   a: 1,
+    //   __proyo__: {
+    //     a: 2
+    //   }
+    // }
+    console.log(new Child1);
+    // {
+    //   __proto: {
+    //     a: 1,
+    //     __proyo__: {
+    //       a: 2
+    //     }
+    //   }
+    // }
+  </script>
+</body>
+</html>

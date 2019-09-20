@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body>
+  <script>
+    // 面型对象
+    // 函数式编程
+    // 组合: 把函数功能组合起来
+    // 继承: 把类组合起来
+    let str = 'javascript';
+    // 1. 转大写
+    // 2. 逆序
+    let util = {
+      fn: () => {
+        let upperStr = str.toUpperCase();
+        return upperStr.split('').reverse().join('');
+      },
+      fn1: () => {
+        let upperStr = str.toUpperCase();
+        return upperStr.split('');
+      }
+    }
+    console.log(util.fn(str));
+    console.log(util.fn1(str));
+
+    const toUpperCase = (str) => str.toUpperCase();
+    const reverse = (str) => str.split('').reverse().join('');
+    const toArray = (str) => str.split('');
+
+    const reUp = _.compose(reverse, toUpperCase);
+    console.log(reUp(str));
+
+    const upArr = _.compose(toArray, toUpperCase);
+    console.log(upArr(str));
+
+    // 实现 compose
+    function compose1(f1, f2) {
+      return function (str) {
+        return f1(f2(str))
+      }
+    }
+    const upArr1 = compose1(toArray, toUpperCase);
+    console.log(upArr1(str));
+
+    function compose2(...fns) {
+      // fns []
+      // [fn1, fn2, fn3, fn4]
+      // fn1(fn2(fn3(fn4)))
+      // fn1 fn2 => fn1(fn2())
+      // fn1(fn2()) fn3 => fn1(fn2(fn3()))
+      console.log(fns);
+      return fns.reduce((f1, f2) => {
+        return function (str) {
+          return f1(f2(str));
+        }
+      });
+    }
+    const pushStr = (arr) => arr.concat('hello');
+    const upArr2 = compose2(pushStr, toArray, toUpperCase);
+    console.log(upArr2(str));
+  </script>
+</body>
+</html>
