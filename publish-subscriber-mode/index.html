@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #box {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: rgba(16, 200, 233, 0.7);
+      cursor: pointer;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    // 订阅
+    class SubScribe {
+      constructor() {
+        this.pond = []
+      }
+
+      // 向容器中添加方法
+      add(fn) {
+        let pond = this.pond,
+          isExist = false;
+
+        pond.forEach(item => item === fn ? isExist = true : null)
+        !isExist ? pond.push(fn) : null;
+
+        // pond.filter((index, item, arr) => {
+        //   return arr.indexOf(item) === index;
+        // })
+      }
+
+      // 向容器中移除
+      remove(fn) {
+        let pond = this.pond;
+        pond.forEach((item, index) => {
+          if (item === fn) {
+            pond[index] = null;
+          }
+        })
+      }
+
+      // 把容器的 null 去掉
+      fire(...arg) {
+        let pond = this.pond;
+        for (let i = 0; i < pond.length; i++) {
+          let item = pond[i];
+          if (item === null) {
+            pond.splice(i, 1);
+            i--;
+            continue;
+          }
+          item(...arg);
+        }
+      }
+    }
+    window.SubScribe = SubScribe;
+
+    if (typeof SubScribe === 'undefined') {
+      throw new ReferenceError('没有引入SubScribe.js!');
+    }
+
+    class Drag {
+      constructor(ele) {
+        this.ele = ele;
+        ['strX', 'strY', 'strL', 'strT', 'curL', 'curT'].forEach(item => {
+          this[item] = null;
+        })
+
+        this.subDown = new SubScribe
+        this.subMove = new SubScribe
+        this.subUp = new SubScribe
+
+        // 为何要绑定到 this 作用域上？  这两个 this 不一致
+        this.DOWN = this.down.bind(this);
+        console.log(this);
+        this.ele.addEventListener('mousedown', this.DOWN);
+      }
+
+      down(ev) {
+        let ele = this.ele;
+        this.strX = ev.clientX;
+        this.strY = ev.clientY;
+        this.strL = ele.offsetLeft;
+        this.strT = ele.offsetTop;
+
+        this.MOVE = this.move.bind(this);
+        this.UP = this.up.bind(this);
+
+        document.addEventListener('mousemove', this.MOVE);
+        document.addEventListener('mouseup', this.UP);
+
+        this.subDown.fire(ele, ev);
+
+      }
+
+      move(ev) {
+        let ele = this.ele;
+        this.curL = ev.clientX - this.strX + this.strL;
+        this.curT = ev.clientY - this.strY + this.strT;
+        ele.style.left = this.curL + 'px';
+        ele.style.top = this.curT + 'px';
+
+        this.subMove.fire(ele, ev);
+      }
+
+      up(ev) {
+
+        document.removeEventListener('mousemove', this.MOVE);
+        document.removeEventListener('mouseup', this.UP);
+
+        this.subUp.fire(this.ele, ev);
+      }
+    }
+
+    window.Drag = Drag;
+
+    function extendDrag(drag) {
+      // 鼠标摁下时
+      let stopAnimate = function stopAnimate(curEle) {
+        clearInterval(curEle.flyTimer);
+        curEle.speedFly = undefined;
+        clearInterval(curEle.dropTime);
+      }
+
+      // 鼠标移动
+      let computedFly = function computedFly(curEle) {
+        if (!curEle.lastFly) {
+          curEle.lastFly = curEle.offsetLeft;
+          curEle.speedFly = 0;
+          return
+        }
+
+        curEle.speedFly = curEle.offsetLeft - curEle.lastFly;
+        curEle.lastFly = curEle.offsetLeft;
+      }
+
+      // 水平方向上的运动
+      let animateFly = function animateFly(curEle) {
+        let minL = 0,
+          maxL = document.documentElement.clientWidth - curEle.offsetWidth,
+          speed = curEle.speedFly;
+
+        curEle.flyTimer = setInterval(() => {
+          speed *= .98;
+          Math.abs(speed) <= 0.1 ? clearInterval(animateFly) : null;
+          let curT = curEle.offsetLeft;
+          curT += speed;
+
+          if (curT >= maxL) {
+            curEle.style.left = maxL + 'px';
+            speed *= -1;
+            return;
+          }
+
+          if (curT <= minL) {
+            curEle.style.left = minL + 'px';
+            speed *= -1;
+            return;
+          }
+
+          curEle.style.left = curT + 'px';
+        }, 20)
+      }
+
+      // 垂直方向上的运动
+      // -----------
+      let animateDrop = function animateDrop(curEle) {
+        let speed = 9.8,
+          minT = 0,
+          maxT = document.documentElement.clientHeight - curEle.offsetHeight;
+        curEle.dropTimer = setInterval(() => {
+          speed += 10;
+          speed *= .98;
+          Math.abs(speed) <= 0.1 ? clearInterval(animateFly) : null;
+          let curT = curEle.offsetTop;
+          curT += speed;
+          if (curT >= maxT) {
+            curEle.style.top = maxT + 'px';
+            speed *= -1;
+            return;
+          }
+          if (curT <= minT) {
+            curEle.style.top = minT + 'px';
+            speed *= -1;
+            return;
+          }
+          curEle.style.top = curT + 'px';
+        }, 20);
+      };
+
+
+      // 订阅操作
+      drag.subDown.add(stopAnimate)
+      drag.subMove.add(computedFly)
+      drag.subUp.add(animateFly)
+      drag.subUp.add(animateDrop)
+    }
+
+    // let drag = new Drag(document.getElementById('box'));
+    let drag = new Drag(box);
+    extendDrag(drag);
+  </script>
+</body>
+
+</html>
