@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 怎么知道数组元素发生了变化
+    // data () {
+    //   return {
+    //     a: 1,
+    //     arr: []
+    //   }
+    // }
+    // this.a = 2;
+    // this.arr.push(1);
+    // v1
+    // 劫持
+    // function $push () {
+    //   // 
+    //   Array.prototype.push();
+    // }
+    // $push(1)
+
+    // v2
+    let originalPush = Array.prototype.push;
+    Array.prototype.push = function (...arg) {
+      console.log("push 被你劫持了");
+      originalPush.call(this, ...arg);
+    }
+    var arr = [0, 1, 2];
+    arr.push(3);
+    // Function.prototype.myBind = function() {}
+  </script>
+</body>
+</html>
