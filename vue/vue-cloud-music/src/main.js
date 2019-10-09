@@ -5,11 +5,12 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
-import def_lazy_img from '../static/img/loading.gif'
+import defLazyImg from '../static/img/loading.gif'
 import store from './vuex/store'
+import '../static/css/reset.css'
 
 Vue.use(VueLazyload, {
-  loading: def_lazy_img
+  loading: defLazyImg
 })
 fastclick.attach(document.body)
 

@@ -16,40 +16,41 @@
 export default {
   name: 'hd',
   data () {
-    return {}
+    return {
+    }
   },
   methods: {
     leftEvent () {
-      this.$store.dispatch('setShowSidebar', true)
+      this.$store.dispatch('setShowSidebar', true) // dispatch派发actions的方法
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-  @import '../assets/css/function'
-  .header
-    height px2rem(88px)
-    line-height px2rem(88px)
+<style scoped lang="stylus">
+@import '../assets/css/function'
+.header
+  height px2rem(88px)
+  line-height px2rem(88px)
+  text-align center
+  display flex
+  justify-content center
+  align-items center
+  color #746ca8
+  font-size px2rem(30px)
+  &-icon
+    flex 0 0 px2rem(88px)
+    margin-top px2rem(6px)
+  &-cont
+    flex 1
     text-align center
-    display flex
-    justify-content center
-    align-items center
-    color #746ca8
-    font-size px2rem(30px)
-    &-icon
-      flex 0 0 px2rem(88px)
-      margin-top px2rem(6px)
-      cursor pointer
-      .icon
-        font-size px2rem(48px)
-    &-cont
-      flex 1
-      text-align center
-      font-size 18px
-      color #ffffff
-      font-weight 500
-      overflow hidden
-      text-overflow ellipsis
-      white-space nowrap
+    font-size 18px
+    color #fff
+    font-weight 500
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+  &-right
+    flex 0 0 px2rem(88px)
+    margin-top px2rem(6px)
 </style>
