@@ -8,7 +8,7 @@
             alt
           />
         </div>
-        <div class="name">wowow</div>
+        <div class="name">许嵩vae</div>
       </div>
       <div class="menu">
         <ul>

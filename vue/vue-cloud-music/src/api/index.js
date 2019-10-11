@@ -15,7 +15,7 @@ axios.interceptors.response.use((res) => {
   }
   return res
 }, (error) => { // 服务器宕机
-  alert('网络异常')
+  alert('网络异常!')
   return Promise.reject(error)
 })
 

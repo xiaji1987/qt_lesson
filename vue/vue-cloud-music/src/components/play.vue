@@ -1,6 +1,6 @@
 <template>
   <div class="play" v-show="playList.length">
-    <transition name="nomal" @enter="enter" @after-enter="afterEnter" @leave="leave" @after-leave="afterLeave">
+    <transition name="normal" @enter="enter" @after-enter="afterEnter" @leave="Leave" @after-leave="afterLeave">
       <div class="normal-player">
         <div class="background">
           <img :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)" alt="" width="100%" height="100%">
@@ -14,7 +14,7 @@
           <h2 class="subtitle" v-html="(currentSong.ar && currentSong.ar[0].name) || (currentSong.artists && currentSong.artists[0].name)"></h2>
         </div>
         <!-- 播放页面的内容 -->
-        <div class="middle" 
+        <div class="middle"
           @touchstart.prevent="middleTouchStart"
           @touchmove.prevent="middleTouchMove"
           @touchend="middleTouchEnd"
@@ -22,12 +22,12 @@
           <div class="middle-l" ref="middleL">
             <div class="cd-wrapper" ref="cdWrapper">
               <div class="cd" ref="imageWrapper">
-                <img 
-                  :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)" 
-                  alt=""
-                  ref="image"
-                  :class="cdCls"
-                  class="image"
+                <img
+                :src="(currentSong.al && currentSong.al.picUrl) || (currentSong.artists && currentSong.artists[0].img1v1Url)"
+                alt=""
+                ref="image"
+                :class="cdCls"
+                class="image"
                 >
               </div>
             </div>
@@ -59,10 +59,10 @@
             <span class="dot" :class="{'active':currentShow==='lyric'}"></span>
           </div>
           <div class="progress-wrapper">
-            <span class="time time-l">{{format(currentTime)}}</span>
+            <span class="time time-l">{{(currentTime)}}</span>
             <div class="progress-bar-wrapper">
             </div>
-            <span class="time time-r">{{format(duration)}}</span>
+            <span class="time time-r">{{(duration)}}</span>
           </div>
           <div class="operators-box">
             <div class="operators">
@@ -90,24 +90,19 @@
         </div>
       </div>
     </transition>
-    <audio 
-      src=""
-      ref="audio"
-      @playing="ready"
-      @error="error"
-      @timeupdate="updateTime"
-      @ended="end"
-      @pause="pause"
-      />
+    <audio src="" ref="audio" @playing="ready" @error="error" @timeupdate="timeupdateTime" @ended="end" @pause="pause">
+
+    </audio>
   </div>
 </template>
 
 <script>
 import scroll from '@/components/scroll'
+import { mapMutations, mapGetters } from 'vuex'
+import api from '@/api'
 export default {
   data () {
     return {
-      playList: [1],
       currentTime: 0,
       duration: 0,
       playingLyric: '我叹服你的技巧',
@@ -115,8 +110,7 @@ export default {
       isPureMusic: false,
       currentLyric: null,
       currentLineNum: 0,
-      currentShow: 'cd',
-      playing: true
+      currentShow: 'cd'
     }
   },
   components: {
@@ -128,19 +122,22 @@ export default {
     },
     disableCls () {
       return this.songReady ? '' : 'disable'
-    }
+    },
+    ...mapGetters(['playList', 'playing'])
   },
   methods: {
     enter () {},
     afterEnter () {},
-    leave () {},
+    Leave () {},
     afterLeave () {},
     currentSong () {},
-    back () {},
+    back () {
+      this.setFullScreen(false)
+    },
     middleTouchEnd () {},
     changeMode () {},
     prev () {},
-    togglePlaying() {},
+    togglePlaying () {},
     next () {},
     showPlaylist () {},
     ready () {},
@@ -148,10 +145,24 @@ export default {
     updateTime () {},
     end () {},
     pause () {},
-    timeupdate () {},
+    timeupdateTime () {},
     ended () {},
-    format () {}
-  }
+    ...mapMutations({
+      setFullScreen: 'SET_FULL_SCREEN]'
+    })
+  },
+  watch: {
+    playing (newPlaying) {
+      if (!this.songReady) {
+        return
+      }
+      const audio = this.refs.audio
+      this.$nextTick(() => {
+        newPlaying ? audio.play() : audio.pause()
+      })
+    },
+    
+  },
 }
 </script>
 
@@ -176,6 +187,7 @@ export default {
       z-index -1
       opacity 0.6
       filter blur(20px)
+
     .top
       position relative
       margin-bottom 25px
@@ -190,6 +202,7 @@ export default {
           line-height px2rem(100px)
           padding 0 px2rem(30px)
           font-size 22px
+
       .title
         width 70%
         margin 0 auto
@@ -200,11 +213,13 @@ export default {
         white-space nowrap
         font-size 18px
         color #fff
+
       .subtitle
         line-height px2rem(40px)
         text-align center
         font-size 14px
         color #fff
+
     .middle
       position fixed
       width 100%
@@ -239,8 +254,10 @@ export default {
               box-sizing border-box
               border-radius 50%
               border 10px solid rgba(255, 255, 255, 0.1)
+
             .play
               animation rotate 20s linear infinite
+
         .playing-lyric-wrapper
           width 80%
           margin 30px auto 0 auto
@@ -251,6 +268,7 @@ export default {
             line-height px2rem(40px)
             font-size 14px
             color hsla(0, 0%, 100%, 0.5)
+
       .middle-r
         display inline-block
         vertical-align top
@@ -268,11 +286,13 @@ export default {
             font-size 14px
             &.current
               color #fff
+
           .pure-music
             padding-top 50%
             line-height px2rem(64px)
             color hsla(0, 0%, 100%, 0.5)
             font-size 14px
+
     .bottom
       position absolute
       bottom px2rem(200px)
@@ -292,6 +312,7 @@ export default {
             width px2rem(40px)
             border-radius px2rem(10px)
             background hsla(0, 0%, 100%, 0.8)
+
       .progress-wrapper
         display flex
         justify-content space-between
@@ -307,14 +328,17 @@ export default {
           width px2rem(60px)
           &.time-l
             text-align left
+
           &.time-r
             text-align right
+
         .progress-bar-wrapper
           // width
           position absolute
           left 0
           right 0
           top 0
+
       .operators-box
         width px2rem(1200px)
         height px2rem(1200px)
@@ -324,18 +348,19 @@ export default {
         transform translate3d(-50%, 0, 0)
         overflow hidden
         z-index -1
-        &after
+        &::after
           content ''
           width 100%
           height 100%
           background #ea2448
           position absolute
-          clip rect(0 px2rem(600px) px2rem(1200px) 0)
+          clip rect(0 px2rem(600px) px2rem(1200px) 0) /*裁剪绝对定位元素 */
           transform rotate(90deg)
           border-radius 50%
+
       .operators
         position absolute
-        top px2rem(50px)
+        top px2rem(70px)
         display flex
         width px2rem(660px)
         height px2rem(132px)
@@ -343,6 +368,7 @@ export default {
         transform translate3d(-50%, 0, 0)
         align-items center
         z-index 100
+
         .icon-box
           flex 1
           height 100%
@@ -351,10 +377,13 @@ export default {
           align-items center
           &.disable
             color #222
+
           i
             font-size 26px
+
         .i-left
           text-align right
+
         .i-center
           margin 0 px2rem(20px)
           > div
@@ -372,21 +401,26 @@ export default {
               color #4436b1
               &.icon-pause
                 margin px2rem(10px) 0 0 px2rem(10px)
+
         .i-right
           text-align left
+
     &.normal-enter-active,
     &.normal-leave-active
       transition all 0.4s
       .top,
       .bottom
         transition all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+
     &.normal-enter,
     &.normal-leave-to
       opacity 0
       .top
         transform translate3d(0, -100px, 0)
+
       .bottom
         transform translate3d(0, 100px, 0)
+
   .mini-player
     display flex
     align-items center
@@ -400,9 +434,11 @@ export default {
     &.mini-enter-active,
     &.mini-leave-active
       transition all 0.4s
+
     &.mini-enter,
     &.mini-leave-to
       opacity 0
+
     .picture
       flex 0 0 px2rem(80px)
       width px2rem(80px)
@@ -415,8 +451,10 @@ export default {
           border-radius 50%
           &.play
             animation rotate 10s linear infinite
+
           &.pause
             animation-play-state paused
+
     .text
       display flex
       flex-direction column
@@ -431,12 +469,14 @@ export default {
         white-space nowrap
         font-size 14px
         color #fff
+
       .desc
         text-overflow ellipsis
         overflow hidden
         white-space nowrap
         font-size 12px
         color hsla(0, 0%, 100%, 0.3)
+
     .control
       flex 0 0 px2rem(60px)
       width px2rem(60px)
@@ -445,6 +485,7 @@ export default {
       .icon
         font-size 30px
         color #fff
+
     .bottom-progress-bar
       position fixed
       left 0

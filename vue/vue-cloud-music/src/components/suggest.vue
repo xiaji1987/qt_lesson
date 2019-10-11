@@ -44,9 +44,6 @@ export default {
     listScroll () {
       this.$emit('listScroll')
     },
-    getDisplayName (item) {
-      return `${item.name}-${item.artists[0] && item.artists[0].name}`
-    },
     refresh () { // ref直接拿到子组件方法
       this.$refs.suggest.refresh()
     },
@@ -59,22 +56,25 @@ export default {
       api.MusicSearch(params).then(res => {
         if (res.code === 200) {
           this.result = [...this.result, ...res.result.songs] // res.result.songs网易云返回的字段
-          this._checkMore(res.result)
+          this._checkMore(res.result) // 检查是否有更多数据
         }
       })
     },
-    search () {
+    search () { // 再次搜索滚动
       this.page = 1
       this.hasMore = true
       this.$refs.suggest.scrollTo(0, 0)
       this.result = []
       this.fetchResult(this.page)
     },
+    getDisplayName (item) {
+      return `${item.name} - ${item.artists[0] && item.artists[0].name}`
+    },
     selectItem (item) {
       this.$emit('select', item)
     },
-    _checkMore (data) {
-      if (data.songs.length < 12 || ((this.page - 1) * limit) >= data.songsCount) {
+    _checkMore (data) { // 判断是否有更多列表
+      if (data.songs.length < 12 || ((this.page - 1) * limit) >= data.songCount) {
         this.hasMore = false
       }
     }
@@ -84,7 +84,7 @@ export default {
       if (!newQuery) {
         return
       }
-      this.search(newQuery)
+      this.search()
     }
   }
 }
@@ -125,4 +125,5 @@ export default {
     span
       font-size 14px
       color hsla(0,0%,100%,.3)
+
 </style>
