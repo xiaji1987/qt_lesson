@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <script type="module">
+    // import { count, obj, changeValue } from './es-module.js' 
+    // console.log(count, obj) // 3 D 3 D
+    // changeValue()
+    // console.log(count, obj) // 4 T 3 T
+    // import 的时候 都是引用关系
+    // import()
+    document.getElementById("btn").addEventListener('click', () => {
+      import('./es-module.js').then(mod => {
+        console.log(mod)
+      })
+    })
+  </script>
+</body>
+</html>
