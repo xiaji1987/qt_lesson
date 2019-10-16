@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function MyPromise (executor) {
+      var self = this
+      self.status = 'pending'
+      self.onResolve = null
+      function resolve(val) {
+        self.status = 'resolved'
+        self.data = val
+        self.onResolve && self.onResolve(val)
+      }
+      function reject() {}
+      executor(resolve, reject)
+    }
+    MyPromise.prototype.then = function(onResolve) {
+      var self = this
+      if(self.status === 'resolved'){
+        onResolve(self.data)
+      }
+      if(self.status === 'pending'){
+        self.onResolve = onResolve
+      }
+    }
+    var p = new MyPromise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(123456)
+      }, 3000)
+    }).then(res => {
+      console.log(res)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 判断 api 是否超时
+    let promiseArr = []
+    let p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject('该 api 超时')
+      }, 3000);
+    })
+    let p2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ code: 0 })
+      }, 4000)
+    })
+    // promiseArr = [p1, p2]
+    Promise.race([p1, p2]).then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+
+    var p3 = new Promise((resolve, reject) => {
+      fetch('http://neteasecloudmusicapi.zhaoboy.com/song/detail?ids=347230')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        resolve(data)
+      })
+    })
+    var p4 = new Promise((resolve, reject) => {
+      fetch('http://neteasecloudmusicapi.zhaoboy.com/comment/music?id=347230')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        resolve(data)
+      })
+    })
+    Promise.all([p3, p4]).then(res => {
+      console.log(res)
+    })
+  </script>
+</body>
+</html>
