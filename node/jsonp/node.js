@@ -1,10 +1,14 @@
-const http = require('http')
+const http = require('http');
+
 http.createServer((req, res) => {
-  if(req.url === '/api/books') {
-    console.log('你进去了')
-    let list = [{book1: 'bk1'},{book2: 'bk2'}]
-    res.end(`getBook(${JSON.stringify(list)})`)
+  // /api/books?callback=getbook  pathname
+  const url = require('url').parse(req.url);
+  if (url.pathname === '/api/books') {
+    const methodName = url.query && url.query.split('=')[1];
+    let list = [ { book: 'book2'} ];
+    res.end(`${methodName}(${JSON.stringify(list)})`);
   }
-}).listen(3002, () => {
-  console.log('server is running')
+})
+.listen(3002, () => {
+  console.log('server is running http://localhost:3002');
 })
