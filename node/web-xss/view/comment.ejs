@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="/he.js"></script>
+  <script src="htmlParse.js"></script>
+  <script>
+    function html_decode(str){
+      var results = "";
+      HTMLParser(he.unescape(str), {
+        start: function( tag, attrs, unary ) {
+          if (['script', 'iframe', 'style'].includes(tag)) return;
+          results += "<" + tag;
+      
+          for ( var i = 0; i < attrs.length; i++ )
+          if (['onerror', 'onclick'].includes(attrs[i].name)) results += ""
+          else  results += " " + attrs[i].name + '="' + attrs[i].escaped + '"'
+      
+          results += ">";
+        },
+        end: function( tag ) {
+          results += "</" + tag + ">";
+        },
+        chars: function( text ) {
+          results += text;
+        },
+        comment: function( text ) {
+          results += "<!--" + text + "-->";
+        }
+      });
+      return results
+    }
+  </script>
+</head>
+<body>
+  <textarea name="" id="txt" cols="30" rows="10"></textarea>
+  <button id="comment">comment</button>
+  <button id="getcomment">getcomment</button>
+  <script>
+    const comment = document.getElementById('comment')
+    const getcomment = document.getElementById('getcomment')
+    const txt = document.getElementById('txt')
+    comment.addEventListener('click', function () {
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+
+          }
+        }
+      }
+      xhr.open('GET', '/comment' + '?comment=' + txt.value, true)
+      xhr.send()
+    })
+    getcomment.addEventListener('click', function () {
+      const xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            const data = xhr.response;
+            const parseData = JSON.parse(data);
+            console.log('parseData', parseData)
+            const html = html_decode(parseData.comment)
+            const span = document.createElement('span')
+            span.innerHTML = html
+            document.body.appendChild(span)
+          }
+        }
+      }
+      xhr.open('GET', '/getcomment', true)
+      xhr.send()
+    })
+  </script>
+  </script>
+</body>
+</html>

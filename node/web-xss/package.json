@@ -1,0 +1,16 @@
+{
+  "name": "web-xss",
+  "version": "1.0.0",
+  "description": "cross site script 跨站脚本攻击\r 用不合法途径往 web页面插入可执行的代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "koa-bodyparser": "^4.2.1"
+  }
+}
