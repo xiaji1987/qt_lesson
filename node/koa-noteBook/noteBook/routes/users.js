@@ -18,15 +18,15 @@ router.get('/all', async(ctx, next) => {
     ctx.body = res
   })
 })
-
+// 注册
 router.post('/userRegister', async(ctx, next) => {
   var _username = ctx.request.body.username
   var _userpwd = ctx.request.body.userpwd
-  var _nickname = ctx.request.body._nickname
-  if (!_username && !_userpwd && !_nickname) {
+  var _nickname = ctx.request.body.nickname
+  if (!_username || !_userpwd || !_nickname) {
     ctx.body = {
       code: '800001',
-      mess: '用户名密码不能为空'
+      mess: "用户名昵称密码不能为空"
     }
     return
   }
@@ -48,25 +48,63 @@ router.post('/userRegister', async(ctx, next) => {
         mess: '用户名已存在'
       }
     } else {
-      await userService.insertUser([user.username, user.userpwd, user.nickname]).then((res) => {
-        let r = ''
-        if (res.affectedRows != 0) {
-          r = 'ok'
-          ctx.body = {
-            code: '800000',
-            data: r,
-            mess: '注册成功'
+      await userService.insertUser([user.username, user.userpwd, user.nickname])
+        .then((res) => {
+          let r = ''
+          if (res.affectedRows != 0) {
+            r = 'ok'
+            ctx.body = {
+              code: '800000',
+              data: r,
+              mess: '注册成功'
+            }
+          } else {
+            r = 'error'
+            ctx.body = {
+              code: '800004',
+              data: r,
+              mess: '注册失败'
+            }
           }
-        } else {
-          ctx.body = {
-            code: '800004',
-            data: r,
-            mess: '注册失败'
-          }
-        }
-      })
+        })
     }
   })
+})
+
+// 登陆
+router.post('/userLogin', async(ctx, next) => {
+  var _username = ctx.request.body.username
+  var _userpwd = ctx.request.body.userpwd
+
+  await userService.userLogin(_username, _userpwd)
+    .then((res) => {
+      let r = ''
+      if (res.length) {
+        r = 'ok'
+        let result = {
+          id: res[0].id,
+          nickname: res[0].nickname,
+          username: res[0].username
+        }
+        ctx.body = {
+          code: '800000',
+          data: result,
+          mess: '登陆成功'
+        }
+      } else {
+        r = 'error'
+        ctx.body = {
+          code: '800004',
+          data: r,
+          mess: '账号或密码错误'
+        }
+      }
+    }).catch((err) => {
+      ctx.body = {
+        code: '800002',
+        data: err
+      }
+    })
 })
 
 module.exports = router
