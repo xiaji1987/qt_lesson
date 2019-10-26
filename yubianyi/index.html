@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 变量 声明提成
+    // console.log(a)
+    // var a = 123
+    // var a
+    // console.log(a)
+
+    // 2. 函数整体提升
+    // test()
+    // function test () {
+    //   console.log('hello world')
+    // }
+    // test()
+
+    function fn (a) {
+      console.log(a)
+      var a = 123
+      console.log(a)
+      function a () {
+        console.log(a)
+      }
+      var b = function () {}
+      console.log(b)
+      function d() {}
+    }
+    fn(1)
+  </script>
+</body>
+</html>
