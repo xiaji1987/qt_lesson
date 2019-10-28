@@ -14,7 +14,7 @@
       <p class="forgot-pwd">忘记密码</p>
       <div class="sign" @click="login">登录</div>
     </div>
-    <p class="register">新用户？点击这里注册</p>
+    <p class="register" @click="register">新用户？点击这里注册</p>
   </div>
 </template>
 
@@ -52,6 +52,9 @@ export default {
       }).catch((err) => {
         console.log(err)
       })
+    },
+    register () {
+      this.$router.push({path: '/StarRegister'})
     }
   }
 }

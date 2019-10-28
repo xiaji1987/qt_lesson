@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.star-banner {
+  box-sizing: border-box;
+}
 .comm-style {
   position: absolute;
   left: 0;
