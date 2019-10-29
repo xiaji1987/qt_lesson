@@ -16,7 +16,7 @@
           v-for="(item, index) in noteClassList"
           :key="index"
           :style="`background-image:url(${item.img})`"
-          @click="noteList(item.title)"
+          @click="nodeList(item.title)"
         >
           <div class="mask"></div>
           <span class="title">{{item.title}}</span>
@@ -97,22 +97,25 @@ export default {
     };
   },
   methods: {
-    menu () {
-      this.isClickMenu_note = true,
-      this.isClickMenu_info = true
+    menu() {
+      this.isClickMenu_note = true;
+      this.isClickMenu_info = true;
     },
-    arrow () {
-      this.isClickMenu_note = false,
-      this.isClickMenu_info = false
+    arrow() {
+      this.isClickMenu_note = false;
+      this.isClickMenu_info = false;
     },
-    noteList (title) {
-      this.$router.push({path: '/noteList', query: {'title': title}})
+    nodeList(title) {
+      // console.log('123');
+      
+      this.$router.push({path: '/noteList', query:{'title':title}})
+      // this.$router.push({path:'/noteClass'});
     }
   },
 };
 </script>
 
-<style lang="less" scoped >
+<style lang="less" scoped>
 .note-class-wrapper {
   width: 100vw;
   height: 100vh;

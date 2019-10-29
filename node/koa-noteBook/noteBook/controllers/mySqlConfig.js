@@ -53,10 +53,30 @@ let userLogin = function(username, userpwd) {
     let _sql = `select * from users where username="${username}" and userpwd="${userpwd}";`
     return allServies.query(_sql)
 }
+// 根据分类名称查找对应的笔记列表
+let findNoteListByType = function(note_type){
+    let _sql = `select * from note where note_type = "${note_type}";`
+    return allServies.query(_sql);
+}
+// 根据笔记列表的ID查找笔记的详情
+let findNoteDetailByID = function(ID) {
+    let _sql = `select * from note where id = "${ID}";`
+    return allServies.query(_sql);
+}
+
+// 新增note
+let insertNote = function(value) {
+    let _sql = `insert into users set username=?,userpwd=?,nickname=?;`
+    return allServies.query(_sql, value)
+}
+
 
 module.exports = {
     getAllUsers,
     insertUser,
     findUser,
-    userLogin
+    userLogin,
+    findNoteListByType,
+    findNoteDetailByID,
+    insertNote
 }

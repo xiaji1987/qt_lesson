@@ -1,21 +1,10 @@
-# front
+# 预编译 四部曲 发生在函数执行之前
+1. 创建AO对象
+2. 找形参和变量声明，将变量声明和形参作为AO属性名，值为undefined
+3. 将实参值和形参值统一
+4. 在函数体里找函数声明，将函数声明作为AO对象属性名，值赋予为函数体
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# 预编译也发生在全局
+1. 创建GO对象
+2. 找形参和变量声明，将变量声明和形参作为GO属性名，值为undefined
+3. 在全局找函数声明，将函数声明作为AO对象属性名，值赋予为函数体

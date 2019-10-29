@@ -14,7 +14,7 @@
       <p class="forgot-pwd">忘记密码</p>
       <div class="sign" @click="login">登录</div>
     </div>
-    <p class="register" @click="register">新用户？点击这里注册</p>
+    <p class="register">新用户？点击这里注册</p>
   </div>
 </template>
 
@@ -43,18 +43,17 @@ export default {
         }
       }).then((res) => {
         console.log(res)
-        if (res.data.code == '800000') {
-          sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
-          this.$router.push({path: '/noteClass'})
+        if(res.data.code == '800000') {
+          sessionStorage.setItem('userInfo',JSON.stringify(res.data.data) )
+          console.log('登录成功');
+          this.$router.push({path:'/noteClass'})
         } else {
           this.$toast(res.data.mess)
         }
-      }).catch((err) => {
-        console.log(err)
+      }).catch((err)=>{
+        console.log(err);
+        
       })
-    },
-    register () {
-      this.$router.push({path: '/StarRegister'})
     }
   }
 }

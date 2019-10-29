@@ -5,9 +5,9 @@
       <div class="avatar" :style="`background-image:url(${avatar})`"></div>
       <div class="input-group">
         <label for="">昵称</label>
-        <input type="text" id="username" v-model="nickname">
+        <input type="text" id="nickname" v-model="nickname">
       </div>
-      <div class="input-group">
+      <div class="input-group input-group-panel">
         <label for="">账号</label>
         <input type="text" id="username" v-model="username">
       </div>
@@ -16,15 +16,15 @@
         <input type="password" id="password" v-model="password">
       </div>
       <div class="sign" @click="register">注册</div>
-      <span class="badge-img">+</span>
+      <span class="badge-img"></span>
     </div>
-    <p class="register" @click="login">已有账号了?点击登录</p>
+    <p class="register" @click="login">已有账号啦，点击登录</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'StarLogin',
+  name: 'StarRegister',
   data () {
     return {
       nickname: '',
@@ -35,22 +35,23 @@ export default {
   },
   methods: {
     register() {
-      if (this.nickname.trim() == '' || this.username.trim() == '' || this.password.trim() == '') {
-        this.$toast('昵称，账号或密码不能为空')
+      if (this.username.trim() == '' || this.password.trim() == '' || this.nickname.trim() === '') {
+        this.$toast('昵称、账号或密码不能为空')
         return
       }
       this.$http({
         url: 'http://localhost:3000/users/userRegister',
         method: 'post',
         data: {
-          nickname: this.nickname.trim(),
           username: this.username.trim(),
-          userpwd: this.password.trim()
+          userpwd: this.password.trim(),
+          nickname: this.nickname.trim()
         }
       }).then((res) => {
         console.log(res)
         if (res.data.code == '800000') {
-          this.$router.push({path: '/StarLogin'})
+          sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
+          this.$router.push({path: '/noteClass'})
         } else {
           this.$toast(res.data.mess)
         }
@@ -58,8 +59,8 @@ export default {
         console.log(err)
       })
     },
-    login () {
-      this.$router.push({path: '/StarLogin'})
+    login() {
+      this.$router.push({path:'/StarLogin'})
     }
   }
 }
@@ -171,4 +172,3 @@ input {
   }
 }
 </style>
-
