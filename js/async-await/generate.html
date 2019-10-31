@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function* test () {
+      console.log('start')
+      let a = yield "val"
+      console.log(a)
+      let b = yield 123
+      console.log('end')
+    }
+    // const obj = test()
+    // console.log(obj.next(1)) // 上一个 yield 关键字 返回值
+    // console.log(obj.next(2))
+    // console.log(obj.next(3))
+
+    // TJ co autoRun 就是类似 co 的东西
+    function autoRun (generateFun) {
+      let genObj = generateFun()
+      let g = genObj.next()
+      while(!g.done) {
+        console.log('------', g)
+        g = genObj.next(g.value)
+      }
+    }
+
+    autoRun(test)
+  </script>
+</body>
+</html>
