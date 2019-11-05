@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="container"></ul>
+  <script>
+    const ul = document.getElementById('container')
+    const total = 100000;
+    let once = 10
+    let time1 = Date.now()
+    let time2
+    loop(total)
+    function loop(total) {
+      if(total < 0){
+        return false
+      }
+      setTimeout(() => {
+        time2 = Date.now()
+        for (let i = 0; i < once; i++) {
+          let li = document.createElement('li')
+          li.innerHTML = total - i
+          ul.appendChild(li)
+        }
+        loop(total - once)
+      }, 0);
+    }
+    
+    console.log(time2 - time1) 
+  </script>
+</body>
+</html>
