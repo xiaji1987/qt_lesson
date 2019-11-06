@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn"></button>
+  <script>
+    document.getElementById('btn').addEventListener('click', () => {
+      console.log(1)
+    })
+    // while (true) {
+    //   console.log(123)
+    // }
+    console.log(1)
+    Promise.resolve().then(() => {
+      console.log(2)
+    })
+    setTimeout(() => {
+      console.log(3)
+      new Promise((resolve, reject) => {
+        console.log(4)
+        resolve()
+      }).then(res => {
+        console.log(5)
+      },10).then(res => {
+        console.log(6)
+      }, 10)
+    })
+  </script>
+</body>
+</html>
