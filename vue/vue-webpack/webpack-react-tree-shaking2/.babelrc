@@ -1,0 +1,15 @@
+{
+  // stage-0 stage-1
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    ["import", {
+      "libraryName": "lodash",
+      "libraryDirectory": "",
+      "camel2DashComponentName": false // default: true
+    }]
+  ]
+}
