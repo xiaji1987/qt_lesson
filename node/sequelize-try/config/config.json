@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "root",
+    "password": "990704",
+    "database": "learn-sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
