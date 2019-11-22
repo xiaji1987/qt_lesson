@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- useScaleAble:no -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <label for="touchstart">touchstart:</label>
+    <span id="touchstart"></span>
+  </div>
+  <div>
+    <label for="touchend">touchend:</label>
+    <span id="touchend"></span>
+  </div>
+  <div>
+    <label for="click">click:</label>
+    <span id="click"></span>
+  </div>
+  <div>
+    <div id="test">开始检测</div>
+    <div id="diff">计算时间</div>
+  </div>
+  <ul id="ul">
+    <li>1
+      <span>123</span>
+      <span>456</span>
+      <span>789</span>
+    </li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    // 移动端点击
+    var test = document.getElementById('test')
+    var diff = document.getElementById('diff')
+    var touchstart = document.getElementById('touchstart')
+    var touchend = document.getElementById('touchend')
+    var click = document.getElementById('click')
+    var ul = document.getElementById('ul')
+    ul.addEventListener('click', (event) => {
+      console.log(event.target.innerText)
+      // console.log(event.path)
+      console.log(event)
+    })
+    test.addEventListener('touchstart', (event) => {
+      touchstart.innerText = Date.now()
+    })
+    test.addEventListener('touchend', (event) => {
+      event.preventDefault()
+      // test.click()
+      let eventClick = document.createEvent('MouseEvents')
+      // 第一个true是否冒泡 第二个true是否preventDefault
+      eventClick.initEvent('click', true, true)
+      test.dispatchEvent(eventClick)
+      touchend.innerText = Date.now()
+    })
+    test.addEventListener('click', () => {
+      click.innerText = Date.now()
+    })
+
+    diff.addEventListener('click', () => {
+      let p = document.createElement('p')
+      p.innerText = click.innerHTML - touchend.innerText
+      document.body.appendChild(p)
+    })
+
+  </script>
+</body>
+</html>
