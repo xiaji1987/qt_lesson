@@ -1,3 +1,7 @@
+img {
+  widows: 30px;
+  height: 30px;
+}
 .App {
   text-align: center;
 }

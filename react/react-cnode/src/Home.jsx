@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Pagination } from 'antd';
 import axios from './axios';
 import { Spin } from 'antd'
+import { Link } from 'react-router-dom'
+ 
 const perSize = 40
 const tabMap = {
   'all': '全部',
@@ -36,15 +38,22 @@ class Home extends Component {
   handleChangeTab = (key) => {
     // onClick
     return (e) => {
+      // setState 异步执行
+      // 事务
+      // react setState借鉴了这个概念
+      // Promise.all()
       this.setState({
         tab: key
+      },() => {
+        this.handleRequestList()
       })
-      this.handleRequestList()
     }
   }
   onChange = page => {
     this.setState({
       current: page,
+    },() => {
+      this.handleRequestList()
     })
   }
   render () {
@@ -65,11 +74,13 @@ class Home extends Component {
         {
           list.data && list.data.map((dis, index) => {
             return (
-              <li key={index}>
-                <img src={dis.author.avatar_url} alt=""/>
-                <span>{dis.loginname}</span>
-                <h2>{dis.title}</h2>
-              </li>
+              <Link to={`/topic/${dis.id}`} key={index}>
+                <li>
+                  <img src={dis.author.avatar_url} alt=""/>
+                  <span>{dis.loginname}</span>
+                  <h2>{dis.title}</h2>
+                </li>
+              </Link>
             )
           })
         }

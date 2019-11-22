@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import './App.css'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './Home';
@@ -26,8 +27,8 @@ class App extends React.Component {
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
-            <Route path="/"><Home /></Route>
-            <Route path="/topic"><Topic /></Route>
+            <Route exact path="/"><Home /></Route>
+            <Route path="/topic/:id"><Topic /></Route>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design 2018 Created by Ant UED</Footer>
         </Layout>
