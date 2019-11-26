@@ -1,14 +1,20 @@
 import { fromJS } from 'immutable'
+import * as constants from './constant'
 const defaultState = fromJS({
   topicList: []
 })
 
-function homeReducer(state, action) {
+function homeReducer(state = defaultState, action) {
   switch (action.type) {
-    case '':
-      return ''
+    case constants.CHANGE_HOME_DATA:
+      return state.merge(
+        {
+          topicList: fromJS(action.topicList),
+          articleList: fromJS(action.articleList),
+          recommendList: fromJS(action.recommendList),
+        })
     default:
-      return defaultState
+      return state
   }
 }
 

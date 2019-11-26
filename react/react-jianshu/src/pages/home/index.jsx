@@ -3,6 +3,7 @@ import baseComponent from '../../lib/baseComponent'
 import { HomeWrapper, HomeLeft } from './style'
 import { actionCreators } from './store/index'
 import { connect } from 'react-redux'
+import Topic from './components/Topic'
 
 class Home extends baseComponent {
   componentDidMount() {
@@ -13,11 +14,14 @@ class Home extends baseComponent {
       <HomeWrapper>
         <HomeLeft>
           <img className='banner-img' alt='' src="//upload.jianshu.io/admin_banners/web_images/4318/60781ff21df1d1b03f5f8459e4a1983c009175a5.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" />
+          <Topic />
         </HomeLeft>
       </HomeWrapper>
     )
   }
 }
+
+// const mapGet
 
 const mapDispatchToProps = (dispatch) => {
   return {
