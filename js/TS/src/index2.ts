@@ -15,7 +15,7 @@ interface Direction {
 
 function assigined(all: number): Direction
 function assigined(topAndBottom: number, leftAndRight: number): Direction
-function assigined(top: number, Right: number, bottom, left: number): Direction
+function assigined(top: number, Right: number, bottom: number,left: number): Direction
 
 function assigined (a: number, b?: number, c?: number, d?: any) {
   if (b === undefined && c === undefined && d === undefined) {
