@@ -5,7 +5,8 @@ import { Provider } from 'react-redux'
 import baseComponent from './lib/baseComponent'
 import store from './store/index'
 import Home from './pages/home/index'
-
+import Header from './common/header/index'
+import './statics/iconfont/iconfont'
 class App extends baseComponent {
   render () {
     return (
@@ -13,7 +14,7 @@ class App extends baseComponent {
         {/* BrowserRouter保存了全局的路由信息 */}
         <BrowserRouter>
           <div>
-            header
+            <Header />
             <Route exact path="/" component={Home}></Route>
           </div>
         </BrowserRouter>

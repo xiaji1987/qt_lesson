@@ -1,0 +1,1 @@
+export const SEARCH_FOCUS = 'common/SEARCH_FOCUS'
