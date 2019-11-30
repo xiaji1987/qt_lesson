@@ -8,7 +8,7 @@ class List extends baseComponent {
   state = {  }
   render() {
     const { List, page } = this.props
-    console.log(List)
+    // console.log(List)
     return (
       <div>
         {

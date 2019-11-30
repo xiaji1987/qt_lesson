@@ -9,7 +9,6 @@ class Header extends baseComponent {
   state = {}
   render() {
     const { focus } = this.props
-    console.log(focus)
     return (
       <div>
         <HeaderWrapper>
@@ -24,8 +23,11 @@ class Header extends baseComponent {
             </NavItem>
             <SearchWrapper>
               <CSSTransition timeout={200} in={focus} classNames="slide">
-                <NavSearch onFocus={() => {
-                  this.props.handFocus()
+                <NavSearch onMouseEnter={() => {
+                  this.props.handFocus(true)
+                }}
+                onMouseLeave={() => {
+                  this.props.handFocus(false)
                 }}>
                 </NavSearch>
               </CSSTransition>
@@ -38,6 +40,7 @@ class Header extends baseComponent {
                 写文章
 						</Button>
             </Link>
+            <Link to='/login'><NavItem className='right'>登陆</NavItem></Link>
             <Button className='reg'>注册</Button>
           </Addition>
         </HeaderWrapper>
@@ -54,8 +57,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToprops = (dispatch) => {
   return {
-    handFocus() {
-      dispatch(actionCreate.searchFocus())
+    handFocus(focus) {
+      dispatch(actionCreate.searchFocus(focus))
     }
   }
 }

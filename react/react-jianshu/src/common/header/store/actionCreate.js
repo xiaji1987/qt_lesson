@@ -1,6 +1,7 @@
 import * as CONTANTS from './constants'
-export const searchFocus = () => {
+export const searchFocus = (focus) => {
   return {
-    type: CONTANTS.SEARCH_FOCUS
+    type: CONTANTS.SEARCH_FOCUS,
+    focus: focus
   }
 }

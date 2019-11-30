@@ -21,7 +21,7 @@ export const getMoreList = (page) => {
   return (dispatch) => {
     axios.get('/api/homeList.json?page=' + page).then(res => {
       const result = res.data.data
-      console.log(result)
+      // console.log(result)
       dispatch({
         type: constants.ADD_ARTICLE_LIST,
         list: result,
