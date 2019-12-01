@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let MyProxy = function (target, handle) {
+      debugger
+      let setter = handle.set ? function(prop, val) {
+        // /////
+        return handle.set(this, prop, val);
+      } : function (prop, val) {
+        // 系统默认 set
+        // this
+        this[prop] = val
+      }
+      let getter = handle.get ? function(prop) {
+        return handle.get(prop);
+      }: function(prop) {
+        return this[prop];
+      }
+      let keys = Object.keys(target);
+      keys.forEach((key) => {
+        // 生成的实例 对象
+        // set (value) {
+        // }
+        // 出错：value -> props
+        // bind: key -> prop
+        // set ： value -> val
+        // function(prop, val){}
+        Object.defineProperty(this, key, {
+          get: getter.bind(target),
+          set: setter.bind(target, key)
+        })
+      })
+      
+    }
+    // obj.a = 123
+    function observe(o, callback) {
+      return new MyProxy(o, {
+        set(target, property, value) {
+          callback(property, value);
+          target[property] = value;
+        },
+      });
+    }
+
+    const x = { 'name': 'BB-8' };
+    const p = observe(x, (property, value) => console.info(property, value));
+    p.name = 'BB-9';
+
+    // function P() {
+    //   // this
+    // }
+    // p.prototype.a = function() {
+    //   // this
+    // }
+    // let a = new p();
+  </script>
+</body>
+
+</html>
