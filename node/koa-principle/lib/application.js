@@ -1,5 +1,6 @@
 let http = require('http')
 let EventEmitter = require('events')
+let stream = require('stream')
 
 let context = require('./context')
 let request = require('./request')
@@ -31,8 +32,19 @@ class myKoa extends EventEmitter {
   }
 
   handleRequest(req, res) { // 处理请求
+    res.statusCode = 404 // 默认
     let ctx = this.createContext(req, res)
     this.fn(ctx) // 调用用户给的回调， 把ctx还给用户使用
+    if (typeof ctx.body == 'object') {
+      res.setHeader('Content-Type', 'application/json;charse=utf8')
+      res.end(JSON.stringify(ctx.body))
+    } else if (ctx.body instanceof stream) {
+      ctx.body(res)
+    } else if (typeof ctx.body == 'string'|| Buffer.isBuffer(ctx.body)) {
+      res.setHeader('Content-Type', 'text/html;charse=utf8')
+    } else {
+      res.end('Not found')
+    }
     res.end(ctx.body) // ctx.body 用来输出到页面
   }
 

@@ -1,6 +1,6 @@
 let url = require('url')
 let request = {
-  get url () {
+  get url () { // 架上get关键字，可以直接调用不需要括号，例如url
     return this.req.url
   },
   get path () {
