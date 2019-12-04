@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    this.a = 20;
+    function go() {
+      console.log(this.a)
+      this.a = 30 //
+      console.log('++++++')
+    }
+    go.prototype.a = 40
+    var test = {
+      a: 50,
+      init: function(fn) {
+        fn();
+        console.log(this.a)
+        console.log('------')
+        return fn
+      }
+    }
+    // 1
+    // new 调用时this 指什么 -> 实例 例如 let a = new go() this -> a
+
+    // this 指向一个对象 继承自 go.proporype
+    // 把 this.a 这两个属性赋值上去
+    console.log(new go().a) //这个a指什么 打印 40 30
+
+    // 2.
+    test.init(go) // 20 50
+
+    // 3.
+    var p = test.init(go) // 30 50
+    // 4.
+    p(); // 30
+  </script>
+</body>
+</html>
