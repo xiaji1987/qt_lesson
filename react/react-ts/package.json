@@ -1,0 +1,34 @@
+{
+  "name": "react-ts",
+  "version": "1.0.0",
+  "description": "- typescript react关系\r   超级大项目\r   typescript js\r   webpack src\r   index.js loader index.ts\r   index.jsx index.tsx",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.4.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.15",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.2.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --inline --hot --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
