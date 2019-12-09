@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 前端 -->
+  <script>
+    function cb(data) {
+      console.log(data) 
+    }
+  </script>
+  <script src="/api/abc?callback=cb"></script>
+
+  <!-- 后端接受/api/abc?callback=cb -->
+  <!-- cb([name: '123']) -->
+  <script>
+    // window.cb
+    // document.createElement('script').src
+    // document.body.append(script)
+  </script>
+</body>
+</html>
