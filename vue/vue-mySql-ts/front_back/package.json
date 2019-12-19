@@ -1,0 +1,21 @@
+{
+  "name": "front_back",
+  "version": "1.0.0",
+  "description": "sequelize init (./node_modules/.bin/sequelize init)",
+  "main": "index.js",
+  "dependencies": {
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "mysql2": "^2.0.2",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
