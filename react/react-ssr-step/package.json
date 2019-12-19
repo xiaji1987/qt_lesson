@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel dev:**",
-    "dev:start": "nodemon  --watch build --exec node \"./build/bundle.js\"",
-    "dev:build:server": "webpack --config ./webpack.server.js --watch"
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
+    "dev:build:server": "webpack --config ./webpack.server.js --watch",
+    "dev:build:client": "webpack --config ./webpack.client.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

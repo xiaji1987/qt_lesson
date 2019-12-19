@@ -1,15 +1,24 @@
+import React from 'react';
 import express from 'express';
+import { renderToString 
+} from 'react-dom/server';
+import Header from '../components/Header';
 import render from './render';
+/**
+ * 构建在 虚拟 dom 之上的 服务端渲染
+ * { name： ''， age: '' }
+ * { tag: '', attribute: , children: [], class: '' }
+ * 
+ * MVVM / dom diff
+ * react: react-native
+ * vue:   weex
+ */
 const app = new express();
-
-// 构建在虚拟dom之上的服务端渲染
-// 虚拟dom和平台无关
-
+app.use(express.static('public'))
 app.get('*', (req, res) => {
-  const html = render();
+  const html = render(req);
   res.send(html)
 })
-
-app.listen(3001, () => {
-  console.log('express server is running 3001');
+app.listen(3000, () => {
+  console.log('server is running 3000');
 })
