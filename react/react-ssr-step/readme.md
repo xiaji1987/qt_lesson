@@ -58,3 +58,7 @@ express.static('public')
 
 public: /public/index.js
 // 作为 node 服务返回的 html 需要加载
+
+## store
+生成请求: 生成 带有 数据的 html
+目的: 用户当前访问的这一页数据 都由后端生成html生成

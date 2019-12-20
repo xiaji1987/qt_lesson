@@ -3,13 +3,14 @@ import { renderToString } from 'react-dom/server';
 import Header from '../components/Header';
 import { StaticRouter } from 'react-router-dom'
 import routes from '../routers'
-import { renderRoutes } from 'react-router-config'
+import { renderRoutes, matchRoutes } from 'react-router-config'
+import { Provider } from 'react-redux'
+import { getServerStore } from '../store/index'
 
-
-export default (req) => {
+export default (req, store) => {
   // jsx
   const App = (
-    <>
+    <Provider store={store}>
       <StaticRouter location={req.path}>
         {/* <Header /> */}
         <div>
@@ -18,7 +19,7 @@ export default (req) => {
           }
         </div>
       </StaticRouter>
-    </>
+    </Provider>
   )
   return `
   <!DOCTYPE html>
@@ -31,6 +32,9 @@ export default (req) => {
 </head>
 <body>
   <div id="app">${renderToString(App)}</div>
+  <script>window.__context__ = {
+    state: ${JSON.stringify(store.getState())}
+  }</script>
   <script src="/index.js"></script>
 </body>
 </html>
