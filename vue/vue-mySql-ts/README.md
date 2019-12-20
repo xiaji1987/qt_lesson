@@ -61,3 +61,13 @@ sequelize:db create (.\node_modules\.bin\sequelize db:create)
 
 ## 导入种子文件的数据
 .\node_modules\.bin\sequelize db:seed:all // 导入种子文件
+.\node_modules\.bin\sequelize db:seed:undo:all // 删除所有导入种子文件
+
+
+
+
+## 开始项目开发
+- tsc --init // 初始化tsc
+- npm install ts-node -g
+- npm i koa // 装koa
+- npm i --save @types/koa  // koa与ts的结合需要的依赖不装报错

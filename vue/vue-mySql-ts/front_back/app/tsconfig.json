@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // node环境标准
+    "target": "ES2017",
+    "noImplicitAny": false, // 有any类型就会提示错误信息
+    "removeComments": true, // 打包移除一些没有意义的代码 例如: 注释 console.log 减小代码体积
+    "preserveConstEnums": true, // 枚举
+    "sourceMap": true, // 后续调试使用
+    "outDir": "./dist", // 生成到dist目录下
+    "experimentalDecorators": true, // 装饰器支持
+    "emitDecoratorMetadata": true, // 元素支持
+  },
+  "compileOnSave": true // 每次保存自动编译
+}
