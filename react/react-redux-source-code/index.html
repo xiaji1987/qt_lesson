@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="module">
+    import { createStore, combineReducer } from './index.js'
+    function count(state, action) {
+      switch (action.type) {
+        case 'ADD':
+          return state + 1
+        default:
+          return 0
+      }
+    }
+
+    function count1(state, action) {
+      switch (action.type) {
+        case 'ADD':
+          return state + 1
+        default:
+          return 0
+      }
+    }
+    /*
+      {count: 0, count1: 0}
+      state.header.islogin
+      state.home
+    */
+    const reducer =  combineReducer({count, count1})
+
+    const store = createStore(reducer)
+    store.subscribe(() => {
+      console.log('数据改变了')
+    })
+    store.dispatch({
+      type: 'ADD'
+    })
+
+    console.log(store.getState())
+  </script>
+</body>
+
+</html>
