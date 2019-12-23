@@ -23,7 +23,7 @@ import { useControllers } from 'koa-controllers'
 
 const app = new Koa()
 
-useControllers(app, __dirname + '/controllers/**/*.controllers.js', {
+useControllers(app, __dirname + '/controllers/**/*.controller.js', {
   multipart: { // 自动加载
     dest: './uploads'
   }
