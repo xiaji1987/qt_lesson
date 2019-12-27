@@ -1,12 +1,32 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import style from '../../assets/global-style';
 
-export const Content = styled.div`
-  position: fixed;
-  top: 90px;
-  left: 0;
-  bottom: 0;
-  right: 0;
+export const SliderContainer = styled.div`
+  position: relative;
+  background: white;
+  .before{
+    position: absolute;
+    top: -300px;
+    height: 400px;
+    width: 100%;
+    background: ${style["theme-color"]};
+    z-index: 1;
+  }
+  .slider-container{
+    position: relative;
+    width: 98%;
+    height: 160px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 6px;
+    .slider-nav{
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-pagination-bullet-active{
+      background: ${style["theme-color"]};
+    }
+  }
 `
-
-// width: 100%;
-// height: calc(100vh - 90px)

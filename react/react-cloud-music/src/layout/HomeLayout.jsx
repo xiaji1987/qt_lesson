@@ -1,14 +1,21 @@
 import React from 'react';
-import { renderRoutes } from 'react-router-config'
-import { NavLink } from 'react-router-dom'
-import { Top, Tab, TabItem } from './style'
+import {
+  renderRoutes
+} from 'react-router-config';
+import {
+  NavLink
+} from 'react-router-dom';
+import {
+  Top, Tab, TabItem
+} from './style';
 
-function Home (props) {
+function Home(props) {
   return (
     <div>
       {/* css in js */}
+      {/* js in css */}
       <Top>
-        <span
+      <span
           className="iconfont menu"
           onClick={() => alert("用户中心正在开发中，敬请期待:)")}
         >
@@ -23,21 +30,27 @@ function Home (props) {
         </span>
       </Top>
       <Tab>
-        <NavLink to="/recommend" activeClassName="selected">
-          <TabItem>
-            <span>推荐</span>
-          </TabItem>
-        </NavLink>
-        <NavLink to="/singers" activeClassName="selected">
-          <TabItem>
-            <span>歌手</span>
-          </TabItem>
-        </NavLink>
-        <NavLink to="/rank" activeClassName="selected">
-          <TabItem>
-            <span>排行榜</span>
-          </TabItem>
-        </NavLink>
+        <NavLink
+        to="/recommend"
+         activeClassName="selected">
+           <TabItem>
+             <span>推荐</span>
+           </TabItem>
+         </NavLink>
+         <NavLink
+        to="/singers"
+         activeClassName="selected">
+           <TabItem>
+             <span>歌手</span>
+           </TabItem>
+         </NavLink>
+         <NavLink
+        to="/rank"
+         activeClassName="selected">
+           <TabItem>
+             <span>排行榜</span>
+           </TabItem>
+         </NavLink>
       </Tab>
       {
         renderRoutes(props.route.routes)

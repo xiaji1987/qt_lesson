@@ -1,10 +1,13 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom'
-import BlankLayout from '../layout/BlankLayout'
+import React from 'react';
+// React.createElement
+import {
+  Redirect
+} from 'react-router-dom';
+import BlankLayout from '../layout/BlankLayout';
 import HomeLayout from '../layout/HomeLayout'
-import RecommendComponent from '../application/recommend/index'
-import SingersComponent from '../application/singers/index'
-import RankComponent from '../application/rank/index'
+import RecommandComponent from '../application/recommend/index';
+import SingersComponent from '../application/singers/index';
+import RankComponent from '../application/rank/index';
 
 export default [{
   component: BlankLayout,
@@ -20,7 +23,7 @@ export default [{
         },
         {
           path: '/recommend',
-          component: RecommendComponent
+          component: RecommandComponent
         },
         {
           path: '/singers',
