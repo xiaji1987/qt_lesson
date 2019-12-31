@@ -46,12 +46,12 @@ function initRouter(app) {
 }
 
 
-function initController() {
+function initController(app) {
   const controllers = {}
   // 读取控制器目录
   load('controller', (filename, controller) => {
     // 添加路由
-    controllers[filename] = controller
+    controllers[filename] = controller(app)
   })
   // console.log(controllers)
   return controllers
@@ -77,10 +77,24 @@ function loadConfig(app) {
       // 加载模型
       app.$model = {}
       load('model', (filename, { schema, options }) => {
+        // console.log(filename)
         app.$model[filename] = app.$db.define(filename, schema, options) // 将sequlize一个个模型全部加载起来
       })
       app.$db.sync() // 模块同步
     }
+    if(conf.middleware) {
+      conf.middleware.forEach(mid => {
+        const midPath = path.resolve(__dirname, 'middleware', mid)
+        app.$app.use(require(midPath))
+      })
+    }
+  })
+}
+
+const schedule = require('node-schedule')
+function initSchedule() {
+  load('schedule', (filename, {interval, handle}) => {
+    schedule.scheduleJob(interval, handle)
   })
 }
 
@@ -88,7 +102,8 @@ module.exports = {
   initRouter,
   initController,
   initService,
-  loadConfig
+  loadConfig,
+  initSchedule
 }
 
 
