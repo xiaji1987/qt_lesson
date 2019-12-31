@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <template id="common-header">
+    <h1>
+      <slot name="title"></slot>
+    </h1>
+    <p>hello component</p>
+  </template>
+  <yt-header>
+    <span slot="title">自拟定义 title</span>
+  </yt-header>
+  <script>
+    class YtHeader extends HTMLElement {
+      constructor() {
+        super()
+        const commonHeader = document.getElementById('common-header')
+        const shadow = this.attachShadow({
+          mode: 'open'
+        })
+        shadow.appendChild(commonHeader.content)
+      }
+    }
+    customElements.define('yt-header', YtHeader)
+  </script>
+</body>
+</html>

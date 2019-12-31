@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <div>
+      <label >
+        userName 
+        <pop-over text="a-zA-Z" img="https://www.baidu.com/img/2019dong_33c09d45f5e85ae961a3852d8769f124.gif"></pop-over>
+      </label>
+      <input type="text">
+    </div>
+  </form>
+  <script>
+  class popOver extends HTMLElement {
+    constructor() {
+      super();
+      const shadow = this.attachShadow({
+        mode: 'open'
+      })
+      const wrapper = document.createElement('span');
+      wrapper.classList.add('wrap');
+      const icon = document.createElement('img');
+      icon.src = this.getAttribute('img');
+      const txt = document.createElement('span');
+      txt.classList.add('txt');
+      txt.innerText = this.getAttribute('text')
+      let style = `
+        .wrap {
+          position: relative;
+        }
+        .txt {
+          position: absolute;
+          left: 0;
+          bottom: 20px;
+          opacity: 0;
+          transition: all 2s;
+        }
+        img:hover + .txt {
+          opacity: 1;
+        }
+      `
+      const styleNode = document.createElement('style');
+      styleNode.textContent = style;
+      shadow.appendChild(styleNode);
+      shadow.appendChild(icon);
+      shadow.appendChild(txt);
+    }
+  }
+  customElements.define('pop-over', popOver)
+  </script>
+</body>
+</html>
