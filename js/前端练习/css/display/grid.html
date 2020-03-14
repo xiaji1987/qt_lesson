@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      display: grid;
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+    }
+    .center {
+      grid-row: 2;
+      grid-column: 2;
+    }
+    .bottom {
+      grid-row: 3;
+      grid-column: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="box top">top</div>
+    <div class="box center">center</div>
+    <div class="box bottom">bottom</div>
+  </div>
+</body>
+</html>

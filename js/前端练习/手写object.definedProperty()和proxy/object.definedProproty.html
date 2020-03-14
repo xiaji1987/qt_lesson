@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="input">
+    <input class="input_change" type="text">
+    <p class="input_text"></p>
+  </div>
+  <script>
+    var obj = {}
+    Object.defineProperty(obj, 'text', {
+      // writable: true,
+      get: function () {
+        return obj
+      },
+      set: function (newValue) {
+        console.log('改变了')
+        document.querySelector('.input_text').innerText = newValue
+        document.querySelector('.input_change').value = newValue
+        // obj.text = newValue
+      },
+      writable: true
+    })
+
+    document.querySelector('.input_change').addEventListener('keyup', (event) => {
+      obj.text = event.target.value
+      console.log(obj.text)
+    })
+  </script>
+</body>
+</html>

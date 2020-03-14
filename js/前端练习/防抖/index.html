@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>防抖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .contain {
+      background-color: #000000;
+      color: #ffffff;
+      width: 100vw;
+      height: 100vh;
+      font-size: 20px;
+      text-align: center; 
+      line-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="contain"></div>
+  <script>
+    let contain = document.querySelector('.contain')
+    function addCount () {
+      console.log(this)
+      contain.innerText = count++
+    }
+    let count = 0
+    function debounce(func, wait) {
+      let timeout
+      return function () {
+        let that = this
+        let args = arguments
+        clearTimeout(timeout)
+        timeout = setTimeout(function () {
+          func.apply(that, arguments)
+        }, wait)
+      }
+    }
+    contain.addEventListener('mousemove', debounce(addCount, 1000))
+  </script>
+</body>
+</html>

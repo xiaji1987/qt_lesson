@@ -1,0 +1,26 @@
+function myInstanceof(left, right) {
+  if (typeof left !== 'object' || left == null) return false
+
+  let proto = Object.getPrototypeOf(left)
+  while(true) {
+    if (proto == null) {
+      return false
+    } else if (proto == right.prototype) {
+      return true
+    }
+    proto = Object.getPrototypeOf(proto)
+  }
+}
+
+var obj = {}
+console.log(myInstanceof(obj, Array))
+
+// function instan(left, right) {
+//   if (typeof left != 'Object' || left == null) return 
+//   let proto = Object.getPrototypeOf(left)
+//   while(true) {
+//     if (proto == null) return false
+//     else if (proto == right.prototype) return true
+//     proto = Object.getPrototypeOf(proto)
+//   }
+// }
