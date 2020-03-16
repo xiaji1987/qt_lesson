@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+  <style>
+    :root {
+      --widht: 400px
+    }
+    .out {
+      width: var(--widht);
+      height: 400px;
+      display: flex;
+      align-items: center;
+    }
+    .in {
+      background-color: yellow;
+      margin: 0 20px;
+      width: calc(var(--widht) - 40px);
+      height: calc((var(--widht) - 40px)/ 2);
+    }
+  </style>
+</head>
+<body>
+  <div class="out">
+    <div class="in"></div>
+  </div>
+</body>
+</html>

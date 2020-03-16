@@ -38,3 +38,16 @@ function deep(obj) {
   })
   return newobj
 }
+
+
+// function mydeep(obj) {
+//   let newObj = {}
+//   Object.keys(obj).forEach(key => {
+//     if(typeof obj[key] == 'Object') {
+//       newObj[key] = mydeep(obj[key])
+//     } else {
+//       newObj[key] = obj[key]
+//     }
+//   })
+//   return newObj
+// }

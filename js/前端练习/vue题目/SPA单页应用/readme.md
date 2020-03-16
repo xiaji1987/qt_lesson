@@ -15,3 +15,6 @@ SPA经咋爱web也买你初始化时加载相应的HTML,JavaScript和css.页面�
 - Nginx开启gzip
 - 路由懒加载
 - 首屏进行服务端渲染
+- vue异步组件
+- 按需加载
+- Webpack开启gzip压缩

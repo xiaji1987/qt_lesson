@@ -4,4 +4,9 @@ function _new(fn, ...arg) {
   return typeof obj1 ? obj1 : obj
 }
 
-console.log(parseFloat(0.1 + 0.2).toFixed(10) === 0.3)
+
+function mynew(fn, ...args) {
+  let obj = Object.create(fn,prototype)
+  let res = fn.apply(obj, args)
+  return typeof res == 'Object' ? res : obj
+}

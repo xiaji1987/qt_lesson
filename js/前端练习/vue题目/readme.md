@@ -75,7 +75,7 @@ vm.items.splice(index, 1, newValue)
 修改数组长度时 vm.items.length = newLenght
 vm.item.splice(newLength)
 
-11. 9、在哪个生命周期内调用异步请求？
+11. 在哪个生命周期内调用异步请求？
 - 能更快获取到服务端数据，减少页面 loading 时间；
 - ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性
 

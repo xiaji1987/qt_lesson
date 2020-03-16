@@ -1,9 +1,9 @@
 function mycompose(mid) {
   return function(ctx, next) {
-    let index= -1
+    let index = -1
     return dispatch(0)
     function dispatch(i) {
-      index = 1
+      index = i
       let fn = mid[i]
       if(i == mid.length) {
         fn = next

@@ -26,7 +26,7 @@ Object.definedProperty()的问题
 Proxy的特点
 1. 针对整个对象，而不是对象的某个属性，所以不需要队keys进行遍历， 这解决了Object.definedProperty的第二个问题
 2. 支持数组 proxy不需要对数组方法进行重载，减少代码量
-3. proxy返回的是新对象，我们可以操作新对象达到目的，而非Object,defineProperty，只能遍历对象直接修改
+3. proxy返回的是新对象，我们可以操作新对象达到目的，而非Object.defineProperty，只能遍历对象直接修改
 
 proxy的优势
 1. prosy的第二个参数可以有13中连接方法，比Object.definedProperty更加丰富
