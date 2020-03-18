@@ -12,6 +12,11 @@ Access-Control-Allow-Headers: 允许的头部
 Access-Control-Allow-Credentials: 允许发送cookie
 使用option之间，看是否需要跨域请求
 
-3. Nginx反向代理
-4. postMessage
+3. postMessage
+postmessage是HTML5 XMLHttpRequest的API
+- 页面和其打开的新窗口数据传递
+- 多窗口之间消息传递
+- 页面与嵌套的iframe传递
+
+4. Nginx反向代理
 5. document.domain

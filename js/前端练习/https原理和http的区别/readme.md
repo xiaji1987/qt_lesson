@@ -21,5 +21,14 @@ https对传输数据进行加密，使用非对称加密算法
 http1 和 http2 区别
 http2支持二进制传输， http1文本传输
 http2使用多路复用，代替了http1的序列和阻塞
-http2采用hpack压缩算法亚索头部。减小传输体积
+http2采用hpack压缩算法压缩头部。减小传输体积
 http2支持服务端推送
+
+
+
+
+客户端与服务端保持联系
+1. ajax轮询 每隔一段时间向服务器发起一次请求
+2. long poll长轮询 在http1.0中加入connection: keep-active
+3. iframe 长连接 在src标签中内嵌一个iframe标签
+4. webScoket

@@ -10,3 +10,9 @@ function mynew(fn, ...args) {
   let res = fn.apply(obj, args)
   return typeof res == 'Object' ? res : obj
 }
+
+function mynew1(fn, ...args) {
+  let obj = Object.create(fn.prototypr)
+  let root = fn.apply(obj, args)
+  return typeof root == 'object' ? root : obj
+}

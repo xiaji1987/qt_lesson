@@ -51,3 +51,15 @@ function deep(obj) {
 //   })
 //   return newObj
 // }
+
+// function deepCopy(obj) {
+//   let newObj = {}
+//   Object.keys(obj).forEach(key => {
+//     if(typeof obj[key] == 'Object') {
+//       newObj[key] = deepCopy(obj[key])
+//     } else {
+//       newObj[key] = obj[key]
+//     }
+//   })
+//   return newobj
+// }

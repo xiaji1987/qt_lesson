@@ -58,4 +58,41 @@ newPromise.prototype.then = function (onFulfilled, onRejected) {
 // Promise.all1([p1, p2, p3])
 //   .then(console.log);
 
-module.exports = newPromise
+// module.exports = newPromise
+
+function newPrimise(fn) {
+  let self = this
+  self.status = 'pending'
+  self.value = undefined
+  self.reason = undefined
+  self.onFulfilled = null
+  self.onReject = null
+  let resolve = function (newValue) {
+    if(self.status == 'pending') {
+      self.status = 'fulfill'
+      self.value = newValue
+      self.onFulfilled = self.value
+    }
+  }
+  let reject = function (newReason) {
+    if(self.status == 'pending') {
+      self.status = 'reject'
+      self.reason = newReason
+      self.onReject = self.reason
+    }
+  }
+  fn(resolve, reject)
+}
+
+newPrimise.prototype.then = function(onFulfilled, onReject) {
+  if(this.status == 'pending') {
+    this.onFulfilled = onFulfilled
+    this.onRejected = onRejected
+  }
+  if(this.status == 'fulfill') {
+    onFulfilled()
+  }
+  if(this.status == 'fulfill') {
+    onReject()
+  }
+}

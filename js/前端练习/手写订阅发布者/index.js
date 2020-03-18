@@ -43,3 +43,37 @@ emitter2.on('hi', (name, age) => {
   console.log(`I am ${name}, and I am ${age} years old`)
 })
 emitter2.emit('hi', 'Jerry', 12)
+
+
+
+class EventEmit {
+  constructor() {
+    this.event = {}
+  }
+  on(EventName, fn) {
+    if(!this.event[EventName]) {
+      this.event[eventName] = []
+    }
+    this.event[eventName].push(fn)
+  }
+  emit(EventName, ...parmas) {
+    const events = this.event[EventName]
+    if(events){
+      events.forEach(event => {
+        event.apply(this, parmas)
+      })
+    }
+  }
+  off(EventName, fn) {
+    if(this.event[EventName]) {
+      if (!func) {
+        this.events[EventName] = []
+      } else {
+        this.event[EventName].splice(this.events[eventName].indexOf(fn), 1)
+      }
+    }
+  }
+  once(EventName, fn) {
+    this.event[EventName] = fn
+  }
+}

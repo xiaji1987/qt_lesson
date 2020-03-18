@@ -7,9 +7,9 @@
   <title>Document</title>
   
   <style>
-    :root {
+    /* :root {
       --widht: 400px
-    }
+    } */
     .out {
       width: var(--widht);
       height: 400px;
@@ -17,16 +17,19 @@
       align-items: center;
     }
     .in {
-      background-color: yellow;
+      background-color: blue;
       margin: 0 20px;
-      width: calc(var(--widht) - 40px);
-      height: calc((var(--widht) - 40px)/ 2);
+      /* width: calc(var(--widht) - 40px);
+      height: calc((var(--widht) - 40px)/ 2); */
+      width: 100%;
+      height: 0;
+      padding: 25% 0;
     }
   </style>
 </head>
 <body>
   <div class="out">
-    <div class="in"></div>
+    <div class="in">A</div>
   </div>
 </body>
 </html>

@@ -12,3 +12,10 @@ Function.prototype.mybind = function(context, ...args1) {
     return that.apply(context, args1.concat(args2))
   }
 }
+
+Function.prototype.newBind = function(context, ...args1) {
+  let self = this
+  return function (...args2) {
+    return self.apply(context, args1.concat(args2))
+  }
+}

@@ -40,3 +40,18 @@ console.log(myInstanceof(obj, Array))
 //     proto = Object.getPrototypeOf(proto)
 //   }
 // }
+
+function myinstanceof(left, right) {
+  if(typeof left != 'object' || left == null || right) {
+    return
+  }
+  let proto = Object.getPrototypeOf(left)
+  while(true) {
+    if(proto == null) {
+      return false
+    } else if (proto == right.prototype) {
+      return true
+    }
+    proto = Object.getPrototypeOf(proto)
+  }
+}
