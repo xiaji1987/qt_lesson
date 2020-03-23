@@ -50,11 +50,4 @@
 
 // console.log(Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON)
 
-var a = {aa: 1, cc:{dd: 3}}
-var b = {bb: 2, ee:{ff: 4}}
-var c = Object.assign({}, a, b)
-console.log(c)
-c.aa = 11
-c.cc.dd = 33
-console.log(a)
-console.log(c)
+

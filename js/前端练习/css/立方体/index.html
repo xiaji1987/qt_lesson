@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 100vw;
+      height: 100vh;
+      transform-style: preserve-3d;
+      transform: rotateY(-30deg) rotateX(57deg);
+    }
+    .box-li {
+      width: 200px;
+      height: 200px;
+      opacity: 0.7;
+      position: absolute;
+    }
+    .up {
+      background-color: red;
+      transform:rotateX(90deg) translateZ(100px);
+    }
+    .down{
+			background:orange;
+			transform:rotateX(-90deg) translateZ(100px);
+		}
+		.left{
+			background:yellow;
+			transform:rotateY(-90deg) translateZ(100px);
+		}
+		.right{
+			background:blue;
+			transform:rotateY(-90deg) translateZ(100px);
+		}
+		.before{
+			background:cyan;
+			transform:translateZ(100px);
+		}
+		.after{
+			background:purple;
+			transform:translateZ(-100px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box-li up"></div>
+    <div class="box-li down"></div>
+    <div class="box-li left"></div>
+    <div class="box-li right"></div>
+    <div class="box-li before"></div>
+    <div class="box-li after"></div>
+  </div>
+</body>
+</html>

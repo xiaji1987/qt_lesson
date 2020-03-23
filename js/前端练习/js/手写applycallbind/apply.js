@@ -21,3 +21,14 @@ Function.prototype.newApply = function(context, ...args) {
   delete context[fn]
   return res
 }
+
+Function.prototype.myApply = function(context, args) {
+  context = context || window
+  args = args ? args : []
+
+  const key = Symbol()
+  context[key] = this
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}

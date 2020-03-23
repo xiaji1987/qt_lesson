@@ -3,20 +3,20 @@ function newPromise(fn) {
   self.status = 'pending'
   self.value = undefined
   self.reason = undefined
-  self.onFulfilled = null
-  self.onRejected = null
+  self.onFulfilled = []
+  self.onRejected = []
   let resolve = (newValue) => {
     if (self.status == 'pending') {
       self.status = 'fulfilled'
       self.value = newValue
-      self.onFulfilled(self.value)
+      self.onFulfilled.foreach(el => el())
     }
   }
   let reject = (newReason) => {
     if (self.status == 'pending') {
       self.status = 'rejected'
       self.reason = newReason
-      self.onFulfilled(self.reason)
+      self.onFulfilled.foreach(el => el())
     }
   }
   fn(resolve, reject)
@@ -95,4 +95,26 @@ newPrimise.prototype.then = function(onFulfilled, onReject) {
   if(this.status == 'fulfill') {
     onReject()
   }
+}
+
+newPromise.prototype.all = function(promises) {
+  return new Promise((resolve, reject) => {
+    let result = []
+    promises.foreach((promise) => {
+      promise.then(res => {
+        result.push(res)
+        if(result.length == promise.length) {
+          resolve(result)
+        }
+      }).catch(reject)
+    })
+  })
+}
+
+newPrimise.prototype.race = function(promises) {
+  return new Promise(function(resolve, reject) {
+    promises.foreach(() => {
+      promise.then(resolve, reject)
+    })
+  })
 }

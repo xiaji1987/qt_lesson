@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .img-box {
+      height: 300px;
+      width: 100%;
+    }
+
+    img {
+      width: 200px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scroll">
+    <div class="img-box">
+      <img data-src="./images/1.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/2.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/3.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/4.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/5.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/6.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/7.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/8.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/9.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/10.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/11.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/12.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/13.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/14.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/15.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/16.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/17.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/18.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/19.png" alt="">
+    </div>
+    <div class="img-box">
+      <img data-src="./images/20.png" alt="">
+    </div>
+  </div>
+  <script>
+    let images = document.querySelectorAll('img')
+    function getTop(event) {
+      return event.offsetTop
+    }
+
+    function lazyload(imgs) {
+      let viewHight = window.innerHeight
+      let scorllHight = document.documentElement.scrollTop || document.body.scrollTop;
+      for (let i = 0; i < imgs.length; i++) {
+        // console.log(getTop(imgs[i]))
+        if ((viewHight + scorllHight) > getTop(imgs[i])) {
+          imgs[i].src = imgs[i].getAttribute('data-src')
+        }
+      }
+    }
+    function debounce(func, delay) {//防抖or节流函数
+      let run = true;
+      return function () {
+        if(!run) return false
+        run = false
+        let context = this;
+        let args = arguments;
+        timer = setTimeout(function () {
+          func.apply(context, args);
+          run = true
+        }, delay)
+      }
+    }
+    lazyload(images)
+    window.onscroll = function () {
+      debounce(lazyload(images), 5000)
+    }
+  </script>
+</body>
+
+</html>

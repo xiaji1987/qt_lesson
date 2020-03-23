@@ -77,3 +77,26 @@ class EventEmit {
     this.event[EventName] = fn
   }
 }
+
+class EventEmitter {
+  constructor() {
+    this.event = {}
+  }
+  on(eName, callback) {
+    this.event[eName] ? this.event[eName].push(callback) : this.event[eName] = [callback]
+  }
+  emit(eName, ...args) {
+    this.event[eName] && this.event[eName].forEach(cb => cd(...args))
+  }
+  off(eName) {
+    if(this.event[eName]) {
+      delete this.event[eName]
+    }
+  }
+  once(eName, callback) {
+    this.on(eName, (...args) => {
+      callback(...args)
+      this.off(eName)
+    })
+  }
+}

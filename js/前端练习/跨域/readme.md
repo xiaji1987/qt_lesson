@@ -7,8 +7,8 @@
 2. cors(跨域共享)
 浏览器加上请求同: origin字段
 Access-Control-Allow-Origin: 允许的源，请求的网址
-Access-Control-Allow-Methods: 允许的方法
-Access-Control-Allow-Headers: 允许的头部
+Access-Control-Allow-Methods: 允许的方法 (GET ,post, ...)
+Access-Control-Allow-Headers: 允许的头部simple headers、Accept、Accept-Language、Content-Language、Content-Type (application/x-www-form-urlencoded,multipart/form-data,text/plain)
 Access-Control-Allow-Credentials: 允许发送cookie
 使用option之间，看是否需要跨域请求
 

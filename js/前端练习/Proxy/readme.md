@@ -1,0 +1,13 @@
+1. get (读取)
+2. set (赋值)
+3. apply (函数调用)
+4. has  (函数查询)
+5. constructer (构造函数)
+6. deleteProperty (属性删除)
+7. defineProperty (添加属性)
+8. getOwnPropertyDescriptor (描述属性)
+9. getPrototypeOf (对象原型)
+10. ownKeys (属性键名)
+11. setPrototypeof (改变原型)
+12. proxy.revocable (移除Proxy实例)
+13. this

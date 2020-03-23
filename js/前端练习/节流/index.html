@@ -31,14 +31,8 @@
     }
     let count = 0
     function debounce(func, wait) {
-      // let oldTime = 0
       let run = true
       return function () {
-        // let nowTime = new Date()
-        // if (nowTime - oldTime >= wait) {
-        //   func.apply(that)
-        //   oldTime = nowTime
-        // }
         if (!run) return
         run = false
         setTimeout(() => {

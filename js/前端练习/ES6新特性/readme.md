@@ -66,6 +66,7 @@ const [a, b] = [b, a]
 
 10. Number
 Number.EPSILON  Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON
+NumberisInteger 判断是否是整数
 
 11. Object.assign()
 var a = {aa: 1, cc:{dd: 3}}

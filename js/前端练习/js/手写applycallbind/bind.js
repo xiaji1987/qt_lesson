@@ -19,3 +19,11 @@ Function.prototype.newBind = function(context, ...args1) {
     return self.apply(context, args1.concat(args2))
   }
 }
+
+Function.prototype.myBind = function (context, ...args) {
+  let that = this
+  args = args ? arsg : []
+  return function (...args1) {
+    return that.apply(context, args.concat(args1))
+  }
+}

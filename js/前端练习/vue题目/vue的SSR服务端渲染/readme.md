@@ -7,3 +7,10 @@ SSR大致的意思就是vue在客户端将标签渲染成的整个 html 片段�
 缺点:
 - 开发条件限制，服务端渲染只支持beforeCreate和created两个函数
 - 更多的服务器负载，在node.js中渲染完整的应用程序，会更大的占用CPU资源，因此服务器负载大，明智采用缓存策略
+
+SSR 使用 vue-server-render插件来制作
+使用fs读取模板文件，再用createRenderer()函数进行注入
+
+2. 路由配置
+3. 配置webpack
+4. bundle Renderer

@@ -29,6 +29,6 @@ http2支持服务端推送
 
 客户端与服务端保持联系
 1. ajax轮询 每隔一段时间向服务器发起一次请求
-2. long poll长轮询 在http1.0中加入connection: keep-active
+2. long poll长轮询 在http1.0中加入connection: keep-alive
 3. iframe 长连接 在src标签中内嵌一个iframe标签
 4. webScoket
