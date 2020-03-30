@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .classli {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+    .box-li {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <ul class="classUl">
+      <li class="classli">
+        <div class="box-li"><span>1</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>2</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>3</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>4</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>5</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>6</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>7</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>8</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>9</span></div>
+      </li>
+      <li class="classli">
+        <div class="box-li"><span>10</span></div>
+      </li>
+    </ul>
+  </div>
+  <script>
+    let ul = document.querySelector('.classUl')
+    ul.addEventListener('click', (event) => {
+      console.log(event)
+      // getNode(event.target, 'LI')
+    })
+    // function getNode()
+  </script>
+</body>
+
+</html>

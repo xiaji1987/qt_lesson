@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #modal-overlay {
+      visibility: hidden;
+      position: absolute;
+      /* 使用绝对定位或固定定位  */
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      z-index: 1000;
+      background-color: #333;
+      opacity: 0.5;
+      /* 背景半透明 */
+    }
+
+    /* 模态框样式 */
+    .modal-data {
+      width: 300px;
+      background-color: #fff;
+      border: 1px solid #000;
+      padding: 15px;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      animation: gotop 3s;
+    }
+    @keyframes gotop {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: 30%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 600px; height: 600px;">
+    <div id="modal-overlay">
+      <div class="modal-data">
+        <p>一个简单的模态框。</p>
+        <p>点击 <a href="#" onclick="overlay()">这里</a>关闭</p>
+      </div>
+    </div>
+  </div>
+
+
+  <a href="#" onclick="overlay()">显示对话模态框</a>
+
+  <script type="text/javascript">
+    function overlay() {
+      var e1 = document.getElementById('modal-overlay');
+      e1.style.visibility = (e1.style.visibility == "visible") ? "hidden" : "visible";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+async/await就是generator的语法糖
+内置了generator函数

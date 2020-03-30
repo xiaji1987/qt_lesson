@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .qiu {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: blue;
+    }
+    .box {
+      position: fixed;
+      bottom: 100px;
+      right: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+    .animation {
+      animation: animator 5s;
+    }
+    @keyframes animator {
+      0% {
+        left: 0;
+        top: 0;
+      }
+      100% {
+        right: 100px;
+        bottom: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="qiu"></div>
+  <div class="box"></div>
+  <script>
+    let qiu = document.querySelector('.qiu')
+    qiu.addEventListener('click', () => {
+      let div = document.createElement('div')
+      console.log(qiu.style.width)
+      div.style.width = qiu.offsetWidth + 'px'
+      div.style.height = qiu.offsetHeight+ 'px'
+      div.style.backgroundColor = 'green'
+      div.style.position = 'absolute'
+      qiu.appendChild(div)
+      div.className = 'animation'
+    })
+  </script>
+</body>
+</html>

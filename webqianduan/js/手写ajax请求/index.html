@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function ajax(url, method = 'get', param = {}) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        // url补充
+        if (method == 'get' && param) {
+          let paramString = paraToString(param)
+          // 把parm加到url上面
+          url += url.indexOf('?') == -1 ? `?${paramString}` : paramString
+        }
+        xhr.open(method, url);
+        if (method == 'post') {
+          xhr.send(param)
+        } else {
+          xhr.send()
+        }
+        // 状态码发生变化就调用 xhr.onreadystatechange
+        // 状态码为4才调用 xhr.onload
+        xhr.onload = function () {
+          const result = {
+            status: xhr.status,
+            statusText: xhr.statusText,
+            header: xhr.getAllResponseHeaders,
+            data: xhr.response || xhr.responseText
+          };
+          if ((xhr.status >= 200 && xhr <= 300) || xhr == 304) {
+            resolve(data)
+          } else {
+            reject(data)
+          }
+        }
+        // 错误处理
+        xhr.onerror = function () {
+          reject(new TypeError('请求出错'));
+        }
+        xhr.timeout = function () {
+          reject(new TypeError('请求超时'));
+        }
+        xhr.onabort = function () {
+          reject(new TypeError('请求被终止'));
+        }
+      })
+    }
+    function paraToString(param) {
+      let res = '';
+      param.forEach(element => {
+        res += element
+      });
+      return res;
+    }
+  </script>
+</body>
+
+</html>

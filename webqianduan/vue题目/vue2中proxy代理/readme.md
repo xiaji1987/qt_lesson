@@ -1,0 +1,1 @@
+在vue的config/index.js下，proxyTable使用proxy代理

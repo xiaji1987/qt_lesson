@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      background-color: #000;
+    }
+
+    .color {
+      background-color: red;
+      color: #fff;
+      width: 200px;
+      height: 200px;
+    }
+
+    .opacity {
+      background-color: red;
+      color: #fff;
+      width: 200px;
+      height: 200px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="color">123</div>
+    <div class="opacity">bbbb
+      <div class="box-li" style="background: #fff; width: 100px; height: 100px"></div>
+    </div>
+  </div>
+  <script>
+    let color = document.querySelector('.color')
+    let opacity = document.querySelector('.opacity')
+    let box = document.querySelector('.box-li')
+    color.addEventListener('click', () => {
+      console.log('color')
+    })
+    opacity.addEventListener('click', () => {
+      console.log('opacity')
+    })
+    box.addEventListener('click', () => {
+      console.log('box')
+    })
+  </script>
+</body>
+
+</html>

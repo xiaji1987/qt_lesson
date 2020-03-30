@@ -1,0 +1,2 @@
+## 对于MVVM的理解
+MVVM是Model-View-View-ViewModel的缩写。Model代表数据模型，也就是Model中定义数据和操作业务的逻辑，可以把它称为数据层，他仅仅关注数据本身。View用户操作页面，及UI组件，称为视图层。而ViewMolde是连接数据层和视图层连接的桥梁，当ViewModel队数据层的数据更新时，会通过数据绑定到视图层，视图层需要什么数据，ViewModel提供什么数据。所以，简单来说就是利用双向数据绑定，数据层有什么数据变化，ViewMOdel会自动更新，则View也会自动更新

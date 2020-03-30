@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" class="file">
+
+  <script>
+    let file = document.querySelector('.file')
+    file.addEventListener('change', function() {
+      let that = this
+      base(that)
+    })
+    function base(ele) {
+      let file = ele.files[0]
+      if(file == undefined) {
+        return
+      }
+      let render = new FileReader()
+      render.readAsDataURL(file)
+      render.onload = function (event) {
+        let base64 = event.target.result
+        let bili = 1.5
+        suofang(base64, bili)
+      }
+    }
+
+    function suofang(base64, bili) {
+      let img = new Image
+      img.src = base64
+      img.onload = function () {
+        let canvas = document.createElement('canvas')
+        let width = this.width / bili
+        let height = this.height / bili
+        canvas.setAttribute('width', width)
+        canvas.setAttribute('height', height)
+        canvas.getContext('2d').drawImage(this, 0, 0, width, height)
+        let imgBase64 = canvas.toDataURL('image/jpeg')
+        console.log(imgBase64)
+      }
+    }
+  </script>
+</body>
+</html>

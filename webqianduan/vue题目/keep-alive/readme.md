@@ -1,0 +1,6 @@
+keep-alive是Vue内置的组件，是被包含的组件保留状态，避免被重新渲染
+
+特性
+- 一般结合路由和动态组件一起使用，用于缓存组件
+- 提供include和exclude属性两者都支持字符串或者正则表达式。include表示只有匹配的组件才会被缓存，exclude表示任何匹配的组件都不会被缓存，exclude的优先级高于include
+- 对应的钩子函数activated和deactivated，当组建被激活时，触发activated，被移除时，出发钩子函数deactivated

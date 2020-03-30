@@ -1,0 +1,1 @@
+首屏时间计算: webView提供了类似onload方法实现，ios下对应webViewDidEinishLoad,android对应onPageFinished事件
