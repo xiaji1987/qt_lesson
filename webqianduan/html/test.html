@@ -1,48 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <div>vbduishuaihdfa</div>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    #animator {
-      width: 200px;
-      height: 200px;
-      background-color: red;
-      animation: long 3s ease;
-    }
-
-    @keyframes long {
-      0% {
-        width: 200px;
-      }
-
-      100% {
-        width: 500px;
-      }
-    }
-  </style>
 </head>
-
 <body>
-  <div id="animator" class="animation bbb"></div>
-  <script>
-    let animator = document.getElementById('animator')
-    animator.addEventListener('animationend', handle)
-    function handle() {
-      animator.removeEventListener('animationend', handle)
-      console.log(animator.id, animator.className)
-      animator.id = ''
-      animator.className = ''
-      console.log(animator.id, animator.className)
-      setTimeout(() => {
-        animator.id = 'animator'
-      }, 1000)
-    }
-  </script>
+  <div class="box">
+    kankan
+    <div>123</div>
+    ncias
 </body>
-
 </html>
