@@ -13,6 +13,11 @@ vue采用了数据解释结合发布订阅这模式，听过Object.definePropert
 model数据变化 -> Observer监听变化 -> Watcher察觉到数据的更新 -> 触发compile的数据编译 -> 视图更新
 从而达到数据的双向数据绑定
 
+监听器observer
+解析器compile
+订阅者watcher
+订阅器Dep
+
 Object,definedProperty优势
 兼容性好
 Proxy 的存在浏览器兼容性问题,而且无法用 polyfill 磨平
